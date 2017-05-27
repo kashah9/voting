@@ -1,0 +1,35 @@
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+
+.panel-heading{
+    background-color: #3c763d;
+}
+
+.page-header {
+    font-size: xx-large;
+    align-content: center;
+    text-align: -webkit-center;
+}
+#form-wrapper{
+
+    width: 80%;           /* Set this to your convenience */
+    height: 100%;        /* Set this to your convenience */
+    position: fixed;
+    margin: 0 auto;
+    /*margin-top: -384px;     !* Half of height *!
+    margin-left: -512px;     !* Half of width *!*/
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+}
+body {
+    background-color: #FFAE00;
+}
+#temp {
+    font-size: xx-large;
+    text-align: -webkit-center;
+}
