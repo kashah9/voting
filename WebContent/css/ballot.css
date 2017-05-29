@@ -14,7 +14,7 @@
 }
 
 body {
-    background-color: #FFAE00;
+    background-color: #9FA8DA;
 }
 .listNum {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -24,6 +24,7 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.2s;
     border-radius: 5px;
+    margin-bottom: 15px;
 
 }
 
@@ -66,7 +67,7 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 .page {
-	width: 1000px;
+	width: 84%;
 	margin: 0 auto;
     position: absolute;
     visibility: hidden;
@@ -86,29 +87,53 @@ label > input{ /* HIDE RADIO */
   visibility: hidden; /* Makes input not-clickable */
   position: absolute; /* Remove input from document flow */
 }
-label > input + figure > img{ /* IMAGE STYLES */
+label > input + figure > div > img{ /* IMAGE STYLES */
   cursor:pointer;
   border:2px solid transparent;
 }
-label > input:checked + figure > img{ /* (RADIO CHECKED) IMAGE STYLES */
-  border:20px solid #f00;
+label > input:checked + figure > div > img{ /* (RADIO CHECKED) IMAGE STYLES */
+  
+  border: 1px solid #f00;
+  
 }
 
 .button input[type=button] {
-    color:#08233e;
-    font:2.4em Futura, ‘Century Gothic’, AppleGothic, sans-serif;
-    font-size:70%;
-    padding:14px;
-    background:url(overlay.png) repeat-x center #ffcc00;
-    background-color:rgba(255,204,0,1);
-    border:1px solid #ffcc00;
-    border-radius:10px;
-    border-bottom:1px solid #9f9f9f;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
-    cursor:pointer;
-    display: block;
-    width: 100%;
+    padding: 10px 15px 11px !important;
+	font-size: 18px !important;
+	background-color: #57d6c7;
+	font-weight: bold;
+	text-shadow: 1px 1px #57D6C7;
+	color: #ffffff;
+	border-radius: 7px;
+	border: 1px solid #57D6C7;
+	cursor: pointer;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+	display: block;
+	width: 100%;
+	position: relative;
+	
 }
 input[type=button]:hover {
+    background-color:rgba(255,204,0,0.8);
+}
+
+.button input[type=submit]
+{
+	padding: 10px 15px 11px !important;
+	font-size: 18px !important;
+	background-color: #57d6c7;
+	font-weight: bold;
+	text-shadow: 1px 1px #57D6C7;
+	color: #ffffff;
+	border-radius: 7px;
+	border: 1px solid #57D6C7;
+	cursor: pointer;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+	display: block;
+	width: 100%;
+	position: relative;
+	
+}
+input[type=submit]:hover {
     background-color:rgba(255,204,0,0.8);
 }

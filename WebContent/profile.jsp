@@ -6,27 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="/voting/css/ballot.css">
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/voting/css/ballot.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Election Page</title>
 
 <script>
-
-/* function switchVisible() {
-    if (document.getElementById('page1')) {
-
-        if (document.getElementById('page1').style.display == 'none') {
-            document.getElementById('page1').style.display = 'block';
-            document.getElementById('page2').style.display = 'none';
-        }
-        else {
-            document.getElementById('page1').style.display = 'none';
-            document.getElementById('page2').style.display = 'block';
-        }
-    }
-} */
 
 var currentLayer = 'page1';
 
@@ -62,9 +48,11 @@ function hideLayer(lyr) {
 		Iterator itr = set.iterator();
 		while(itr.hasNext())
 		{
+			
 			String positionName = (String)itr.next();
 			ArrayList<String> candidateList = positionCandidateMap.get(positionName);
 			if(positionName.equals("President")){
+				
 	%>
 	<div id = "page1" class="page" style="visibility: visible;">
 	<label class="label"><%=positionName %></label>
@@ -74,15 +62,20 @@ function hideLayer(lyr) {
 			String[] candidateInfo = candidate.split(";");
 			
 		%>
-			<div class="col-md-4 w3-card w3-left w3-hover-opacity w3-display-container">
+			
+			<div class="col-sm-4 w3-card w3-left w3-hover-opacity w3-display-container">
 			<label>
 		    	<input type="radio" name="<%=positionName%>" value="<%=candidateInfo[0]%>" />
 		    	<figure>
-		    		<img src="<%=candidateInfo[2]%>" width="200px" height="200px" >
-		    		<figcaption><%=candidateInfo[1] %></figcaption>
+		    		<div class="w3-card-4" style="width:100%">
+		    		<img src="<%=candidateInfo[2]%>" style="width:100%">
+		    		<div class="w3-container w3-center">
+		    			<p><%=candidateInfo[1] %></p>
+		    		</div>
+		    		</div>
 		    	</figure>
 		  	</label>
-			</div>
+		  	</div>
 			<input type="hidden" name="electionID" value="<%=(int)eBean.getElectionId() %>">
 			<input type="hidden" name="member_id" value="<%=(int)uBean.getMember_id() %>">
 		<%
@@ -105,12 +98,16 @@ function hideLayer(lyr) {
 				{
 					String[] candidateInfo1 = candidate1.split(";");
 		%>
-			<div class="col-md-4 w3-card w3-left w3-hover-opacity w3-display-container">
+			<div class="col-sm-4 w3-card w3-left w3-hover-opacity w3-display-container">
 			<label>
 		    	<input type="radio" name="<%=positionName%>" value="<%=candidateInfo1[0]%>" />
 		    	<figure>
-		    		<img src="<%=candidateInfo1[2]%>" width="200px" height="200px" >
-		    		<figcaption><%=candidateInfo1[1] %></figcaption>
+		    		<div class="w3-card-4" style="width:100%">
+		    		<img src="<%=candidateInfo1[2]%>" style="width:100%">
+		    		<div class="w3-container w3-center">
+		    			<p><%=candidateInfo1[1] %></p>
+		    		</div>
+		    		</div>
 		    	</figure>
 		  	</label>
 			</div>
