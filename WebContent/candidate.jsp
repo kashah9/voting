@@ -11,6 +11,23 @@
    	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
    	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   	<script>
+   	
+    function showProfile(item) {
+    	
+    	<%
+    	String str = "document.writeln(item)";
+    	out.println("Debug:"+str);
+    	%>
+        //var divs = document.getElementsByClassName("newscontainer");
+        //for (var i = 0; i < divs.length; i++) {
+        //    divs[i].style.display = 'none';
+        //}
+        //var myDiv = item.href;
+        //var target = myDiv.split("#");
+        //document.getElementById(target[1]).style.display = "block";
+    }
+   	</script>
     </head>
     <body>
     <div id="wrapper">
@@ -22,93 +39,49 @@
 	        <ul id="menu-content" class="menu-content collapse out">
 	        
 	
-    <%
-    ElectionBean eBean = (ElectionBean) session.getAttribute("currentElection");
-    boolean noElection = eBean.getNoElection();
-	if(!noElection){
-	
-		HashMap<String, ArrayList<String>> positionCandidateMap = eBean.getPositionCandidateMap();
-		Set set = positionCandidateMap.keySet();
-		Iterator itr = set.iterator();
-		while(itr.hasNext())
-		{
-			
-			String positionName = (String)itr.next();
-			ArrayList<String> candidateList = positionCandidateMap.get(positionName);
-			%>
-			 <li data-toggle="collapse" data-target="#president" class="collapsed">
-	         	<a href="#"><i class="fa fa-globe fa-lg"></i><%=positionName%> <span class="arrow"></span></a>
-	         </li>
-			<% 
-			for(String candidate: candidateList)
-			{
-				String[] candidateInfo = candidate.split(";");
-			%>
+		    <%
+		    ElectionBean eBean = (ElectionBean) session.getAttribute("currentElection");
+		    
+			HashMap<String, ArrayList<String>> positionCandidateMap = eBean.getPositionCandidateMap();
+			Set set = positionCandidateMap.keySet();
+			Iterator itr = set.iterator();
 				
-			<ul class="sub-menu collapse" id="president">
-                 <li data-target="#test"><%=candidateInfo[1]%></li>
-                 <li><%=candidateInfo[1]%></li>
-                 <li><%=candidateInfo[1]%></li>
-            </ul>
-            <%
+			while(itr.hasNext())
+			{
+				String positionName = (String)itr.next();
+				ArrayList<String> candidateList = positionCandidateMap.get(positionName);
+				%>
+					
+				<!-- class="collapsed" add this to li tag to hide the content -->
+				<li data-toggle="collapse" data-target="#<%=positionName%>">
+		         	<a href="#"><i class="fa fa-user fa-lg"></i><%=positionName%> <span class="arrow"></span></a>
+		         </li>
+		        <ul class="sub-menu" id=<%=positionName%>>
+				<% 
+					for(String candidate: candidateList)
+					{
+						String[] candidateInfo = candidate.split(";");
+					%>
+						<li><a href="#" onclick="showProfile(<%=candidateInfo[0]%>)" class="tab1"><%=candidateInfo[1]%></a></li>
+					<%
+		           	}
+				%>
+				</ul>
+				
+				<%
 			}
-	    }
 	
-    	%>
-      
-					<li data-toggle="collapse" data-target="#service" class="collapsed">
-	                  <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
-	                </li>  
-	                <ul class="sub-menu collapse" id="service">
-	                  <li>New Service 1</li>
-	                  <li>New Service 2</li>
-	                  <li>New Service 3</li>
-	                </ul>
-	
-	
-	                <li data-toggle="collapse" data-target="#new" class="collapsed">
-	                  <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
-	                </li>
-	                <ul class="sub-menu collapse" id="new">
-	                  <li>New New 1</li>
-	                  <li>New New 2</li>
-	                  <li>New New 3</li>
-	                </ul>
-	
-	
-	                 <li>
-	                  <a href="#">
-	                  <i class="fa fa-user fa-lg"></i> Profile
-	                  </a>
-	                  </li>
-	
-	                 <li>
-	                  <a href="#">
-	                  <i class="fa fa-users fa-lg"></i> Users
-	                  </a>
-	                </li>
-	            </ul>
-	     </div>
-		
-	</div>
-	<div id="page-content-wrapper">
-		<h1>Hello JCNJ Candidate</h1>
+    		%>
+      </ul>
+	  </div>
+	 
 	</div>
 	
-	<div id="test" style="display: none">
-		<h1>Hello JCNJ Candidate</h1>
-	</div>
-	</div>
+	<div id="" class="newscontainer tab1">
 	
-	<%
-	}
+	</div>
+    <div id="page-content-wrapper" class="newscontainer tab2">TAB2 CLCIKED</div>
 	
-	else
-	{
-		%>
-		<h1>No Election in Progress! Come back later....</h1>
-		<%
-	}
-%>
-    </body>
-    </html>
+	</div>
+</body>
+</html>

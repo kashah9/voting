@@ -14,25 +14,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class VotingController
- */
 @WebServlet("/VotingController")
 public class VotingController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
     public VotingController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		try
 		{
 			String electionId = request.getParameter("electionID");
-			//String password = request.getParameter("pwd");
-			//System.out.println(this.getClass().getSimpleName()+" Debug1:"+email+" password:"+password);
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/evoting?autoReconnect=true&useSSL=false","root","");
 			System.out.println(this.getClass().getSimpleName()+" Debug1: Election ID for voting is "+electionId);
@@ -66,8 +60,6 @@ public class VotingController extends HttpServlet {
 			System.out.println("You have Casted Your Vote!!!");
 			RequestDispatcher rd = request.getRequestDispatcher("testSubmit.jsp?status=voted");
             rd.forward(request, response);
-			//String sql = "insert into election_votes values()";
-			//st.executeUpdate(sql);
 			
 		}
 		catch(Exception e)
@@ -80,7 +72,6 @@ public class VotingController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

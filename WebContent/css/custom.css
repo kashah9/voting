@@ -1,21 +1,21 @@
 .nav-side-menu {
   overflow: auto;
   font-family: verdana;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 200;
   background-color: #9E9E9E;
   position: fixed;
   top: 0px;
   width: 300px;
   height: 100%;
-  color: #e1ffff;
+  color: #FFD54F;
 }
 .nav-side-menu .brand {
   background-color: #23282e;
   line-height: 50px;
   display: block;
   text-align: center;
-  font-size: 14px;
+  font-size: 18px;
 }
 .nav-side-menu .toggle-btn {
   display: none;
@@ -25,7 +25,7 @@
   list-style: none;
   padding: 0px;
   margin: 0px;
-  line-height: 35px;
+  line-height: 50px;
   cursor: pointer;
 }
 .nav-side-menu ul :not(collapsed) .arrow:before,
@@ -139,3 +139,13 @@ body {
     padding: 15px;
     margin-left: 300px;
 }
+.newscontainer {
+    display:none;
+}
+#tab1{
+	width: 100%;
+    position: absolute;
+    padding: 15px;
+    margin-left: 300px;
+}
+

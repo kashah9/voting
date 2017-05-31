@@ -18,37 +18,37 @@
 	<div class="container">
 	<h2 class="page-header">Jain Center of New Jersey</h2>
 	  <form class="form-horizontal" action="/voting/LoginController" method="post">
-	    <div class="form-group">
-	      <label class="col-sm-2 col-sm-offset-2 control-label" for="email">Email:</label>
-	      <div class="col-sm-4">
-	        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-	      </div>
-	    </div>
-	    <div class="form-group">
-	      <label class="col-sm-2 col-sm-offset-2 control-label" for="pwd">Password:</label>
-	      <div class="col-sm-4">          
-	        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-	      </div>
-	    </div>
+		  	<div class="form-group">
+		      <label class="col-sm-2 col-sm-offset-2 control-label" for="email">Email:</label>
+		      <div class="col-sm-4">
+		        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="col-sm-2 col-sm-offset-2 control-label" for="pwd">Password:</label>
+		      <div class="col-sm-4">          
+		        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+		      </div>
+		    </div>
 	    <%
-	    String key = (String)request.getAttribute("key");
-	    if(key!=null)
-	    {
+		    String key = (String)request.getAttribute("key");
+		    if(key!=null)
+		    {
 	    %>
-	    <div class="col-sm-2"></div>
-	    <div class="form-group">
-	    	<label class="control-label col-sm-4" style="color:RED;">Please Enter Valid Email/Password Combination</label>
-	    </div>
+		    <div class="col-sm-2"></div>
+		    <div class="form-group">
+		    	<label class="control-label col-sm-4" style="color:RED;">Please Enter Valid Email/Password Combination</label>
+		    </div>
 	    <%
 	    }
 	    %>
-	    <div class="form-group">        
-	      <div class="col-sm-offset-4 col-sm-2">
-	        <button type="submit" class="btn btn-primary">Submit</button>
-	      </div>
-	    </div>
+		    <div class="form-group">        
+		      <div class="col-sm-offset-4 col-sm-2">
+		        <button type="submit" class="btn btn-primary">Submit</button>
+		      </div>
+		    </div>
 	  </form>
-</div>
+	</div>
 </div>
 </body>
 </html>

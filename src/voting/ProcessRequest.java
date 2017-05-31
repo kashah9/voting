@@ -46,6 +46,7 @@ public class ProcessRequest {
 				Map.Entry<String, ArrayList> entry = (Entry<String, ArrayList>) itr.next();
 				String positionName = entry.getKey();
 				ArrayList<String> candNames = entry.getValue();
+				
 				ResultSet rs = st.executeQuery("select v.MEMBER_ID, v.FirstName, v.LastName, c.image_url, c.description from voters as v inner join election_candidates as c on v.member_id=c.candidate_id where MEMBER_ID IN (select CANDIDATE_ID FROM election_candidates WHERE ELECTION_ID="+electionId+" AND POSITION_NAME='"+positionName+"') AND ELECTION_ID="+electionId+" AND POSITION_NAME='"+positionName+"'");
 				while(rs.next())
 				{

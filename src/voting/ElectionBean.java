@@ -33,5 +33,5 @@ public class ElectionBean implements Serializable{
 	public void setPositionCandidateMap(HashMap<String, ArrayList<String>> positionCandidateMap) {
 		this.positionCandidateMap = positionCandidateMap;
 	}
-	
+
 }
