@@ -12,8 +12,8 @@
 <body>
 
 	<div class="container">
-		<form action="profile.jsp" method="get">
-			<h1>Want to edit profile?</h1>
+		<form action="candidateForm.jsp" method="get">
+			<h1>Want to edit profile</h1>
 			<input type="submit" class="btn btn-primary btn-lg" value="Edit Profile">
 		</form>
 		

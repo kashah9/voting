@@ -21,8 +21,7 @@ public class VotingController extends HttpServlet {
     public VotingController() {
         super();
     }
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try
 		{
@@ -40,6 +39,7 @@ public class VotingController extends HttpServlet {
 				System.out.println("You have already casted your vote!");
 				RequestDispatcher rd = request.getRequestDispatcher("testSubmit.jsp?status=again");
 	            rd.forward(request, response);
+	            return;
 			}
 			
 			sql = "select POSITION_NAME from election_positions where election_id="+electionId;

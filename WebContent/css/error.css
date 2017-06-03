@@ -3,6 +3,11 @@
     align-content: center;
     text-align: -webkit-center;
 }
+.page-header2 {
+    font-size: xx-large;
+    align-content: center;
+    text-align: -webkit-center;
+}
 #form-wrapper{
 
     width: 80%;           /* Set this to your convenience */
@@ -21,4 +26,7 @@ body {
 }
 .row {
 	margin-top: 5px;
+}
+#errorCode {
+	text-align: center;
 }

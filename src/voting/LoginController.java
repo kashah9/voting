@@ -79,6 +79,16 @@ public class LoginController extends HttpServlet {
 					}
 				}
 				if(flag){
+					HttpSession session = request.getSession(true);
+					session = request.getSession(true);
+					//CandidateBean cBean = new CandidateBean();
+					//cBean.setCandidateId(candidateId);
+					//cBean.setElectionId(eBean.getElectionId());
+					//session.setAttribute("currentCandidate",cBean);
+			        session.setAttribute("currentElection",eBean); 
+			        if(uBean==null)
+						System.out.println(this.getClass().getName()+" UBEAN NULL");
+			        session.setAttribute("currentUser", uBean);
 					RequestDispatcher rd = request.getRequestDispatcher("candPref.jsp");
 					rd.forward(request, response);
 				}
