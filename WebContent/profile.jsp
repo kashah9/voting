@@ -45,6 +45,10 @@
 		for(String candidate: candidateList)
 		{
 			String[] candidateInfo = candidate.split(";");
+			System.out.println("Hi"+candidateInfo[2]);
+			System.out.println("Hi"+candidateInfo[3]);
+			System.out.println("Hi"+candidateInfo[4]);
+
 			
 		%>
 			
@@ -61,6 +65,8 @@
 		    	</figure>
 		  	</label>
 		  	</div>
+		  	<%-- <input type="hidden" name="description" value="<%=candidateInfo[3]%>">
+		  	<input type="hidden" name="address" value="<%=candidateInfo[4]%>"> --%>
 			<input type="hidden" name="electionID" value="<%=(int)eBean.getElectionId() %>">
 			<input type="hidden" name="member_id" value="<%=(int)uBean.getMember_id() %>">
 		<%

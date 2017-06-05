@@ -22,7 +22,7 @@
 		Set set = positionCandidateMap.keySet();
 		Iterator itr = set.iterator();
 		%>
-           <form class="form-horizontal" action="/voting/FileUploadController" method="post" enctype="multipart/form-data">
+           <form class="form-horizontal" action="upload.jsp" method="post" enctype="multipart/form-data">
             <div class="form-group row">
 	      		<label class="col-sm-2 col-sm-offset-2 control-label">Address</label>
 	      		<div class="col-sm-4"><input type="text" name="address" class="form-control"/></div>

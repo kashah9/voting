@@ -11,11 +11,17 @@
   <error-page>
     <error-code>404</error-code>
     <location>/ErrorPage.jsp</location>
- 	
-  </error-page> 
-  <error-page>
-	  <error-code>500</error-code>
-	  <location>/ErrorLogin.jsp</location>
   </error-page>
- 
+  <error-page>
+    <error-code>500</error-code>
+    <location>/ErrorPage.jsp</location>
+  </error-page>
+  <servlet>
+    <servlet-name>FileUploadController</servlet-name>
+    <servlet-class>voting/FileUploadController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileUploadController</servlet-name>
+    <url-pattern>/upload.jsp</url-pattern>
+  </servlet-mapping>
 </web-app>

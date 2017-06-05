@@ -64,6 +64,7 @@ public class FileUploadController extends HttpServlet {
 		String fileName = FILE.split("\\.")[0] + df.format(new Date());
 		
 		File file = File.createTempFile(fileName, ".jpg", uploads);
+		String tempFile = "C:/uploads/"+fileName;
 
 		try (InputStream input = filePart.getInputStream()) {
 			Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
@@ -85,14 +86,21 @@ public class FileUploadController extends HttpServlet {
 			Statement st = conn.createStatement();
 			System.out.println(this.getClass().getSimpleName()+" Debug: After connection established...");
 			System.out.println(this.getClass().getSimpleName()+": Debug -"+eBean.getElectionId()+uBean.getMember_id()+request.getParameter("position_name")+file.getAbsolutePath()+request.getParameter("profile"));
-			String sql = "insert into election_candidates values("+eBean.getElectionId()+","+uBean.getMember_id()+",'"+request.getParameter("position_name")+"','"+file.getAbsolutePath().replaceAll("/", "//")+"','"+request.getParameter("profile")+"')";
-			st.executeUpdate(sql);
 			
+			String sql = "select * from election_candidates where election_id = '"+eBean.getElectionId()+"' and candidate_id = '"+uBean.getMember_id()+"'";
+			ResultSet rs = st.executeQuery(sql);
+			if(rs.next()){
+				String updateSQL = "update election_candidates SET image_url = '"+tempFile+"', description = '"+request.getParameter("profile")+"', Address = '"+request.getParameter("address")+"' where candidate_id = '"+uBean.getMember_id()+"'";
+				st.executeUpdate(updateSQL);
+			}
+			else {
+				String insertSQL = "insert into election_candidates values("+eBean.getElectionId()+","+uBean.getMember_id()+",'"+request.getParameter("position_name")+"','"+tempFile+"','"+request.getParameter("profile")+"')";
+				st.executeUpdate(insertSQL);
+			}
 			
-			/*request.setAttribute("message", "File Uploaded Successfully");
-			request.getRequestDispatcher("result.jsp").forward(request, response);
-*/			
-			return;
+			RequestDispatcher rd = request.getRequestDispatcher("result.jsp");
+            rd.forward(request, response);
+			
 		}
 		catch(Exception e)
 		{

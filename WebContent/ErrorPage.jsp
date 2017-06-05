@@ -17,10 +17,13 @@
 	
     <h1 class="page-header">Oops, Page Not Found.</h1>
     <br />
-    <button class="btn btn-primary btn-lg btn-block" onclick="history.back()">Back to Previous Page</button>
+    
+    <a class="btn btn-primary btn-lg btn-block" onclick="history.back()">Back to Previous Page</a>
+    <br/>
+    <a class="btn btn-primary btn-lg btn-block" href="/voting/index.jsp">Login Page</a>
     <br/>
     <p id="errorCode"><b>Error code:</b> ${pageContext.errorData.statusCode}</p>
-    <p id="errorCode"><b>Request URI:</b> ${pageContext.request.scheme}://${header.host}${pageContext.errorData.requestURI}</p>
+   	<p id="errorCode"><b>Request URI:</b> ${pageContext.request.scheme}://${header.host}${pageContext.errorData.requestURI}</p>
     <br />
     </div>
     </div>

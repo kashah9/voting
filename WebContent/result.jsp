@@ -4,16 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META Http-Equiv="Cache-Control" Content="no-cache">
+<META Http-Equiv="Pragma" Content="no-cache">
+<META Http-Equiv="Expires" Content="0">
 <title>Insert title here</title>
 </head>
 <body>
+
 	<body> 
         <div id="result">
-            <h3>${requestScope["message"]}</h3>
+            <h2>You successfully edited the profile!</h2>
+            <a href="/voting/Logout.jsp">LogOut</a>
         </div>
-		<% 
-			request.getRequestDispatcher("result.jsp").forward(request, response);
-		%>
+		
     </body>
 </body>
 </html>
