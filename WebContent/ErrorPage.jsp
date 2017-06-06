@@ -26,6 +26,7 @@
    	<p id="errorCode"><b>Request URI:</b> ${pageContext.request.scheme}://${header.host}${pageContext.errorData.requestURI}</p>
     <br />
     </div>
+    <%@include file="footer.jsp" %>
     </div>
 </body>
 </html>

@@ -14,8 +14,8 @@
 	<title>Insert title here</title>
 	</head>
 	<body>
-	<div class="jumbotron" id="form-wrapper">
-	<div class="container">
+	<div>
+	<div class="container" id="form-wrapper">
 	<h2 class="page-header">Jain Center of New Jersey</h2>
 	  <form class="form-horizontal" action="/voting/LoginController" method="post">
 		  	<div class="form-group">
@@ -43,12 +43,14 @@
 	    }
 	    %>
 		    <div class="form-group">        
-		      <div class="col-sm-offset-4 col-sm-2">
-		        <button type="submit" class="btn btn-primary">Submit</button>
+		      <label class="col-sm-offset-2 col-sm-2"></label>
+		      <div class="col-sm-4">
+		        <button type="submit" class="btn btn-primary col-sm-6 col-sm-offset-3">Login</button>
 		      </div>
 		    </div>
 	  </form>
 	</div>
+	<%@include file="footer.jsp" %>
 </div>
 </body>
 </html>

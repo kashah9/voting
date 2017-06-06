@@ -13,10 +13,16 @@
         <script src="/voting/js/bootstrap.min.js"></script>
 </head>
 <body>
-		<div class="jumbotron" id="form-wrapper">
-		<div class="container">
+		<div>
+		<div class="container" id="form-wrapper">
 		<h2 class="page-header">JCNJ: Candidate Profile</h2>
 		<% 
+		
+		// Disabling the browser back button which fetches data from cache memory
+		response.setHeader("Cache-Control","no-cache"); // Forces caches to obtain a new copy of the page from the origin server
+	    response.setHeader("Cache-Control","no-store"); // Directs caches not to store the page under any circumstance
+	    response.setDateHeader("Expires", 0); //Causes the proxy cache to see the page as "stale" 
+	    
 		ElectionBean eBean = (ElectionBean) session.getAttribute("currentElection");
 		HashMap<String, ArrayList<String>> positionCandidateMap = eBean.getPositionCandidateMap();
 		Set set = positionCandidateMap.keySet();
@@ -44,7 +50,7 @@
 					    
            	<div class="form-group row">
            		<label class="col-sm-2 col-sm-offset-2 control-label">Enter Profile</label>
-           		<div class="col-sm-4"><input type="text" name="profile" class="form-control"/></div>
+           		<div class="col-sm-4"><textarea name = "profile" rows="8" cols="48"></textarea></div>
            	</div>
             <div class="form-group row">
            		<label class="col-sm-2 col-sm-offset-2 control-label">Upload Image</label>
@@ -54,12 +60,14 @@
                 </div>
            	</div>
             <div class="form-group row">        
-		      <div class="col-sm-offset-4 col-sm-2">
-		        <button type="submit" class="btn btn-primary">Submit</button>
+		      <label class="col-sm-offset-2 col-sm-2"></label>
+		      <div class="col-sm-4">
+		        <button type="submit" class="btn btn-primary col-sm-6 col-sm-offset-3">Submit</button>
 		      </div>
 		    </div>
             </form>          
         </div>
+        <%@include file="footer.jsp" %>
         </div>
 </body>
 </html>

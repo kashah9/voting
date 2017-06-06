@@ -81,7 +81,7 @@
 	
 	</div>
     <div id="page-content-wrapper" class="newscontainer tab2">TAB2 CLCIKED</div>
-	
+	<%@include file="footer.jsp" %>
 	</div>
 </body>
 </html>

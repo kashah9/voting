@@ -16,6 +16,7 @@
 	<%
 	session = request.getSession();  
     session.invalidate(); 
+   
 	%>
 	<h2 class="page-header">You are successfully logged out!</h2>
 	</div>
