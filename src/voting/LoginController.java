@@ -81,11 +81,7 @@ public class LoginController extends HttpServlet {
 				if(flag){
 					HttpSession session = request.getSession(true);
 					session = request.getSession(true);
-					//CandidateBean cBean = new CandidateBean();
-					//cBean.setCandidateId(candidateId);
-					//cBean.setElectionId(eBean.getElectionId());
-					//session.setAttribute("currentCandidate",cBean);
-			        session.setAttribute("currentElection",eBean); 
+					session.setAttribute("currentElection",eBean); 
 			       /* if(uBean==null)
 						System.out.println(this.getClass().getName()+" UBEAN NULL");
 					*/

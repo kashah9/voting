@@ -12,10 +12,10 @@
 <body>
 
 	<div class="container">
-		<form action="candidateForm.jsp" method="post">
+		
 			<h1>Hello candidate, you got two options!</h1>
-			<input type="submit" class="btn btn-primary btn-lg btn-block" value="Edit Profile">
-		</form>
+			<input type="button" onclick="location.href = 'candidateForm.jsp';" class="btn btn-primary btn-lg btn-block" value="Edit Profile">
+		
 		<br/>
 		<input type="button" class="btn btn-primary btn-lg btn-block" value="Go for Vote">
 	</div>

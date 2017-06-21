@@ -9,6 +9,7 @@
   width: 300px;
   height: 100%;
   color: #FFD54F;
+  padding: 0;
 }
 .nav-side-menu .brand {
   background-color: #23282e;
@@ -130,22 +131,16 @@ body {
   margin: 0px;
   padding: 0px;
 }
-#wrapper {
-    padding-left: 0;
+.container{
+	display: inline-block;
 }
-#page-content-wrapper {
+.page-content, .welcome-page {
+    margin-left: 300px;
+    background-color: #FFD54F;
+    padding: 15px;
     width: 100%;
-    position: absolute;
-    padding: 15px;
-    margin-left: 300px;
-}
-.newscontainer {
-    display:none;
-}
-#tab1{
-	width: 100%;
-    position: absolute;
-    padding: 15px;
-    margin-left: 300px;
+    height: 100%;
+    position: fixed;
+    
 }
 

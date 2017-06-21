@@ -6,7 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Error Page</title>
 		<link rel="stylesheet" href="/voting/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/voting/css/error.css">
         <script src="/voting/js/jquery-3.2.1.min.js"></script>
         <script src="/voting/js/bootstrap.min.js"></script>
 </head>

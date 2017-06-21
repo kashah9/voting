@@ -3,17 +3,83 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-<title>Success</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Election Results</title>
+ 		<link rel="stylesheet" href="/voting/css/bootstrap.min.css">
+        <link rel = "stylesheet" href="/voting/css/result.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="/voting/js/jquery-3.2.1.min.js"></script>
+        <script src="/voting/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-	<body> 
-        <div id="result">
-            <h2>You successfully edited the profile!</h2>
-            <a class= "btn btn-primary btn-lg btn-block" href="/voting/Logout.jsp" role="button">LogOut</a>
-        </div>
-		
-    </body>
+	<div class="container-fluid">
+		<div class="winner-header container";>
+			<div id="header">
+				<h1 id="borderimg" class="w3-myFont">Winners for Election!</h1>
+			</div>
+		</div>
+	
+	<div class="container">
+		<ul class="w3-ul w3-card-4">
+		  <li class="w3-padding-16 w3-border w3-border-red">
+		    <span onclick="this.parentElement.style.display='none'" 
+		    class="w3-button w3-white w3-right">×</span>
+		    <img src="/voting/images/grad1201706091249232.jpg" class="w3-left w3-circle w3-margin-right" style="width:70px">
+		    <span class="w3-large w3-text-blue">Mike Spencer</span><br>
+		    <span>Web Designer</span>
+		    <span class="w3-right w3-large w3-text-red">Votes gained</span>
+		  </li>
+		  <li class="w3-padding-16">
+		    <span onclick="this.parentElement.style.display='none'" 
+		    class="w3-button w3-white w3-xlarge w3-right">×</span>
+		    <img src="img_avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:50px">
+		    <span class="w3-large">Jill</span><br>
+		    <span>Support</span>
+		  </li>  
+		  <li class="w3-padding-16">
+		    <span onclick="this.parentElement.style.display='none'" 
+		    class="w3-button w3-white w3-xlarge w3-right">×</span>
+		    <img src="img_avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:50px">
+		    <span class="w3-large">Jane</span><br>
+		    <span>Accountant</span>
+		  </li> 
+		  <li class="w3-padding-16">
+		    <span onclick="this.parentElement.style.display='none'" 
+		    class="w3-button w3-white w3-xlarge w3-right">×</span>
+		    <img src="img_avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:50px">
+		    <span class="w3-large">Jane</span><br>
+		    <span>Accountant</span>
+		  </li>
+		  <li class="w3-padding-16">
+		    <span onclick="this.parentElement.style.display='none'" 
+		    class="w3-button w3-white w3-xlarge w3-right">×</span>
+		    <img src="img_avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:50px">
+		    <span class="w3-large">Jane</span><br>
+		    <span>Accountant</span>
+		  </li> 
+		  <li class="w3-padding-16">
+		    <span onclick="this.parentElement.style.display='none'" 
+		    class="w3-button w3-white w3-xlarge w3-right">×</span>
+		    <img src="img_avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:50px">
+		    <span class="w3-large">Jane</span><br>
+		    <span>Accountant</span>
+		  </li> 
+		  <li class="w3-padding-16">
+		    <span onclick="this.parentElement.style.display='none'" 
+		    class="w3-button w3-white w3-xlarge w3-right">×</span>
+		    <img src="img_avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:50px">
+		    <span class="w3-large">Jane</span><br>
+		    <span>Accountant</span>
+		  </li> 
+		  <li class="w3-padding-16">
+		    <span onclick="this.parentElement.style.display='none'" 
+		    class="w3-button w3-white w3-xlarge w3-right">×</span>
+		    <img src="img_avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:50px">
+		    <span class="w3-large">Jane</span><br>
+		    <span>Accountant</span>
+		  </li>  
+		</ul>
+	</div>
+	</div>
 </body>
 </html>

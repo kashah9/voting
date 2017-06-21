@@ -6,13 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/voting/css/footer.css"/>
+<link rel="stylesheet" href="/voting/css/bootstrap.min.css">
 </head>
 <body>
-<footer style="position: fixed; bottom: 70px; width: 100%; font-size: larger; text-align: center;">
 
-	&copy; Copyright 2017 - All rights reserved by Jain Center of New Jersey
-	
-</footer>
+	<footer style="position: fixed; bottom: 70px; width: 100%; font-size: larger; text-align: center;">
+		<p>&copy; Copyright 2017 - All rights reserved by Jain Center of New Jersey</p>
+	</footer>
 </body>
 
 </html>

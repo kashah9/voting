@@ -32,6 +32,8 @@ public class VotingController extends HttpServlet {
 			Statement st = conn.createStatement();
 			HttpSession session = request.getSession(true);
 			
+			UserBean ub = (UserBean)session.getAttribute("currentUser");
+			System.out.println("Debug VotingCtrlr: "+ub.getMember_id());
 			String sql = "select * from election_votes where election_id="+electionId+" AND voter_id="+request.getParameter("member_id");
 			ResultSet rs = st.executeQuery(sql);
 			if(rs.next())

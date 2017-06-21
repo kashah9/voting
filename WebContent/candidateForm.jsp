@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="/voting/css/login.css">
         <script src="/voting/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-color: #FFAE00;">
 		<div>
 		<div class="container" id="form-wrapper">
 		<h2 class="page-header">JCNJ: Candidate Profile</h2>
@@ -23,12 +23,20 @@
 	    response.setHeader("Cache-Control","no-store"); // Directs caches not to store the page under any circumstance
 	    response.setDateHeader("Expires", 0); //Causes the proxy cache to see the page as "stale" 
 	    
+	    session = request.getSession(true);
 		ElectionBean eBean = (ElectionBean) session.getAttribute("currentElection");
 		HashMap<String, ArrayList<String>> positionCandidateMap = eBean.getPositionCandidateMap();
 		Set set = positionCandidateMap.keySet();
 		Iterator itr = set.iterator();
+		UserBean uBean = new UserBean();
+		session.setAttribute("currentUser", uBean);
+		String candname = uBean.getUsername();
 		%>
            <form class="form-horizontal" action="upload.jsp" method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+	      		<label class="col-sm-2 col-sm-offset-2 control-label">Name</label>
+	      		<div class="col-sm-4"><input type="text" name="address" class="form-control" value="<%=candname%>" readOnly/></div>
+		    </div>
             <div class="form-group row">
 	      		<label class="col-sm-2 col-sm-offset-2 control-label">Address</label>
 	      		<div class="col-sm-4"><input type="text" name="address" class="form-control"/></div>

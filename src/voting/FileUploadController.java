@@ -32,9 +32,10 @@ import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;*/
 @WebServlet("/FileUploadController")
 @MultipartConfig
 public class FileUploadController extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
     private static String FILE = "";
-	private final String UPLOAD_DIRECTORY = "C:/uploads";
+	private final String UPLOAD_DIRECTORY = "C://Users//skind//voting//voting//WebContent//images";
 	File uploads = new File(UPLOAD_DIRECTORY);
     /**
      * @see HttpServlet#HttpServlet()
@@ -63,29 +64,34 @@ public class FileUploadController extends HttpServlet {
 		DateFormat df = new SimpleDateFormat("yyyyMMddhhmmS");
 		String fileName = FILE.split("\\.")[0] + df.format(new Date());
 		
-		File file = File.createTempFile(fileName, ".jpg", uploads);
-		String tempFile = "C:/uploads/"+fileName;
+		//File file = File.createTempFile(fileName, ".jpg", uploads);
+		String tempFile = fileName+".jpg";
+		String wholePath = UPLOAD_DIRECTORY+"/"+tempFile;
+		wholePath = wholePath.replaceAll("/", "//");
+		Path sourceAs = Paths.get(wholePath);
 
 		try (InputStream input = filePart.getInputStream()) {
-			Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+			Files.copy(input, sourceAs, StandardCopyOption.REPLACE_EXISTING);
 		}
 		try
 		{
 			HttpSession session = request.getSession(true);
-			session = request.getSession(true);
+			//session = request.getSession(true);
 			ElectionBean eBean = (ElectionBean)session.getAttribute("currentElection");
 			if(eBean==null)
 				System.out.println("EBEAN NULL");
 			UserBean uBean = (UserBean)session.getAttribute("currentUser");
 			if(uBean==null)
 				System.out.println("UBEAN NULL");
-			//System.out.println(eBean.getElectionId());
+			
+			System.out.println("Hello: "+uBean.toString());
+			
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/evoting?autoReconnect=true&useSSL=false","root","");
 			
 			Statement st = conn.createStatement();
 			System.out.println(this.getClass().getSimpleName()+" Debug: After connection established...");
-			System.out.println(this.getClass().getSimpleName()+": Debug -"+eBean.getElectionId()+uBean.getMember_id()+request.getParameter("position_name")+file.getAbsolutePath()+request.getParameter("profile"));
+			System.out.println(this.getClass().getSimpleName()+": Debug -"+eBean.getElectionId()+"UBEAN: "+uBean.getMember_id()+"POSITION: "+request.getParameter("position_name")+" "+request.getParameter("profile"));
 			
 			String sql = "select * from election_candidates where election_id = '"+eBean.getElectionId()+"' and candidate_id = '"+uBean.getMember_id()+"'";
 			ResultSet rs = st.executeQuery(sql);

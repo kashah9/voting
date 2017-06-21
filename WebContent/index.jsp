@@ -13,10 +13,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Insert title here</title>
 	</head>
-	<body>
-	<div>
+	<body style="background-color: #FFAE00;">
+	<div class="wrap">
 	<div class="container" id="form-wrapper">
-	<h2 class="page-header">Jain Center of New Jersey</h2>
+	<div class="page-header">Jain Center of New Jersey</div>
 	  <form class="form-horizontal" action="/voting/LoginController" method="post">
 		  	<div class="form-group">
 		      <label class="col-sm-2 col-sm-offset-2 control-label" for="email">Email:</label>

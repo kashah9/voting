@@ -12,28 +12,23 @@
    	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    	<script>
-   	
-    function showProfile(item) {
-    	
-    	<%
-    	String str = "document.writeln(item)";
-    	out.println("Debug:"+str);
-    	%>
-        //var divs = document.getElementsByClassName("newscontainer");
-        //for (var i = 0; i < divs.length; i++) {
-        //    divs[i].style.display = 'none';
-        //}
-        //var myDiv = item.href;
-        //var target = myDiv.split("#");
-        //document.getElementById(target[1]).style.display = "block";
-    }
+   	$(document).ready(function(){
+   		$("#profile").children().hide();
+   		$('#welcome').show();
+   	});
+   	function showProfile(id) {
+   		$("#profile").children().hide();
+		$(id).show();
+		$('#welcome').hide();
+	}
    	</script>
-    </head>
-    <body>
-    <div id="wrapper">
-	<div class="nav-side-menu">
-	    <div class="brand">JCNJ Election</div>
-	    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+   	
+  </head>
+  <body>
+    <div class="container row">
+		<div class="nav-side-menu col-sm-3">
+	    	<div class="brand">JCNJ Election</div>
+	    	<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 	  
 	        <div class="menu-list">
 	        <ul id="menu-content" class="menu-content collapse out">
@@ -45,7 +40,8 @@
 			HashMap<String, ArrayList<String>> positionCandidateMap = eBean.getPositionCandidateMap();
 			Set set = positionCandidateMap.keySet();
 			Iterator itr = set.iterator();
-				
+			
+			int i = 0;
 			while(itr.hasNext())
 			{
 				String positionName = (String)itr.next();
@@ -58,11 +54,13 @@
 		         </li>
 		        <ul class="sub-menu" id=<%=positionName%>>
 				<% 
+					
 					for(String candidate: candidateList)
 					{
 						String[] candidateInfo = candidate.split(";");
 					%>
-						<li><a href="#" onclick="showProfile(<%=candidateInfo[0]%>)" class="tab1"><%=candidateInfo[1]%></a></li>
+						<li><a href="#profile" class="tab1" onclick="showProfile('#profile<%=i%>')"><%=candidateInfo[1]%></a></li>
+						<% i++; %>
 					<%
 		           	}
 				%>
@@ -74,13 +72,52 @@
     		%>
       </ul>
 	  </div>
-	 
 	</div>
 	
-	<div id="" class="newscontainer tab1">
-	
+	<div id="profile" class="page-content col-sm-9">
+		<% 
+		
+		positionCandidateMap = eBean.getPositionCandidateMap();
+		set = positionCandidateMap.keySet();
+		itr = set.iterator();
+		
+		i=0;
+		while(itr.hasNext())
+			{
+				String positionName = (String)itr.next();
+				ArrayList<String> candidateList = positionCandidateMap.get(positionName);
+				
+				//System.out.println("vote"+candidateList.get(0));
+				
+				for(String candidate: candidateList){
+					String[] candidateInfo = candidate.split(";");
+					
+					%>
+				
+				<div id="profile<%=i%>">
+					
+					<div class="media">
+					    <div class="media-left">
+					      <img src="https://s3.amazonaws.com/jcnj-images/IMG_5825.JPG" alt="time pass" class="media-object" style="width:300px">
+					    </div>
+					    <div class="media-body">
+					      <h4 class="media-heading">Left-aligned</h4>
+					      <p><%=candidateInfo[3] %></p>
+					    </div>
+					</div>
+				</div>
+				<%i++;%>
+				
+					<%
+				}
+			}
+		%>
 	</div>
-    <div id="page-content-wrapper" class="newscontainer tab2">TAB2 CLCIKED</div>
+	
+	<div id="welcome" class="col-sm-9 welcome-page">
+		<h1>Welcome to Candidate Profiles!</h1>
+		<img src="/voting/images/jcnj-logo.png" width="500px" height="400px">
+	</div>
 	<%@include file="footer.jsp" %>
 	</div>
 </body>
