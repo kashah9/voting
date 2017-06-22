@@ -138,9 +138,9 @@ body {
     margin-left: 300px;
     background-color: #FFD54F;
     padding: 15px;
-    width: 100%;
+    width: 100% !important;
     height: 100%;
-    position: fixed;
+    position: fixed !important;
     
 }
 

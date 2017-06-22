@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="voting.ElectionBean, java.util.*, voting.UserBean"%>
+    pageEncoding="ISO-8859-1" import="voting.ElectionBean, java.util.*, voting.UserBean, voting.CandidateBean"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -23,19 +23,26 @@
 	    response.setHeader("Cache-Control","no-store"); // Directs caches not to store the page under any circumstance
 	    response.setDateHeader("Expires", 0); //Causes the proxy cache to see the page as "stale" 
 	    
-	    session = request.getSession(true);
+	    /* session = request.getSession(true);
 		ElectionBean eBean = (ElectionBean) session.getAttribute("currentElection");
 		HashMap<String, ArrayList<String>> positionCandidateMap = eBean.getPositionCandidateMap();
-		Set set = positionCandidateMap.keySet();
+		/* Set set = positionCandidateMap.keySet();
 		Iterator itr = set.iterator();
 		UserBean uBean = new UserBean();
 		session.setAttribute("currentUser", uBean);
-		String candname = uBean.getUsername();
+		String candname = uBean.getUsername(); */
+		
+		/* CandidateBean cBean = new CandidateBean();
+		cBean.setCandidateId(); */
 		%>
-           <form class="form-horizontal" action="upload.jsp" method="post" enctype="multipart/form-data">
+           <form class="form-horizontal" action="/voting/candidateFormController" method="get" enctype="multipart/form-data">
+            <div class="form-group row">
+	      		<label class="col-sm-2 col-sm-offset-2 control-label">Memeber ID</label>
+	      		<div class="col-sm-4"><input type="number" name="id" class="form-control"/></div>
+		    </div>
             <div class="form-group row">
 	      		<label class="col-sm-2 col-sm-offset-2 control-label">Name</label>
-	      		<div class="col-sm-4"><input type="text" name="address" class="form-control" value="<%=candname%>" readOnly/></div>
+	      		<div class="col-sm-4"><input type="text" name="name" class="form-control"/></div>
 		    </div>
             <div class="form-group row">
 	      		<label class="col-sm-2 col-sm-offset-2 control-label">Address</label>
@@ -46,12 +53,9 @@
 		    <div class="col-sm-4">
 		    
 			    <select class="form-control" name="position_name">
-					 <%
-					 	while(itr.hasNext()){
-					 		String positionName = (String)itr.next();
-					 		%><option value="<%=positionName%>"><%=positionName%></option><%
-					 	}
-					 %>
+					 <option value="President">President</option>
+					 <option value="Chairman">Chairman</option>
+					 <option value="Treasurer">Treasurer</option>
 				</select>
 			</div>
 			</div>
@@ -75,7 +79,7 @@
 		    </div>
             </form>          
         </div>
-        <%@include file="footer.jsp" %>
+        
         </div>
 </body>
 </html>

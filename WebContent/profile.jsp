@@ -41,6 +41,7 @@
 	%>
 	<div id = "page1" class="page" style="visibility: visible;">
 	<h2 style="text-align: center;">Candidates for <%=positionName %></h2>
+	<div class="row">
 	<%
 		for(String candidate: candidateList)
 		{
@@ -49,7 +50,7 @@
 			System.out.println("Hi"+candidateInfo[3]);
 			System.out.println("Hi"+candidateInfo[4]); */
 		%>
-			
+		
 			<div class="col-sm-4 w3-card w3-left w3-hover-opacity w3-display-container">
 			<label>
 		    	<input type="radio" name="<%=positionName%>" value="<%=candidateInfo[0]%>" />
@@ -63,14 +64,17 @@
 		    	</figure>
 		  	</label>
 		  	</div>
+		
 		  	<%-- <input type="hidden" name="description" value="<%=candidateInfo[3]%>">
 		  	<input type="hidden" name="address" value="<%=candidateInfo[4]%>"> --%>
 			<input type="hidden" name="electionID" value="<%=(int)eBean.getElectionId() %>">
 			<input type="hidden" name="member_id" value="<%=(int)uBean.getMember_id() %>">
+		
 		<%
 			}
 		%>
-		<div class="button">
+		</div>	
+		<div class="button row">
 	    	<!-- <input type="button" value="Save" class="previous" onclick="showLayer('page2');">
 	    	<input type="button" value="Save" class="next" onclick="showLayer('page2');"> -->
 	    	<ul class="pager">
@@ -158,6 +162,6 @@
 		<%
 	}
 %>
-<%@include file="footer.jsp" %>
+
 </body>
 </html>

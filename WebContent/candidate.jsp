@@ -25,7 +25,7 @@
    	
   </head>
   <body>
-    <div class="container row">
+    <div class="container-fluid row">
 		<div class="nav-side-menu col-sm-3">
 	    	<div class="brand">JCNJ Election</div>
 	    	<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>

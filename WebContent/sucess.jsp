@@ -10,8 +10,8 @@
 
 	<body> 
         <div id="result">
-            <h2>You successfully edited the profile!</h2>
-            <a class= "btn btn-primary btn-lg btn-block" href="/voting/Logout.jsp" role="button">LogOut</a>
+            <h2>Thank you for submitting your response, We'll get back to you in near future!</h2>
+            <!-- <a class= "btn btn-primary btn-lg btn-block" href="/voting/Logout.jsp" role="button">LogOut</a> -->
         </div>
 		
     </body>
