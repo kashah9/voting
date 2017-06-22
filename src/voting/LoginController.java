@@ -58,45 +58,14 @@ public class LoginController extends HttpServlet {
 				
 				eBean = preq.processing();
 				HashMap<String, ArrayList<String>> candHashmap = eBean.getPositionCandidateMap();
-				Set set = candHashmap.keySet();
-				Iterator itr = set.iterator();
-				System.out.println(set);
 				
-				int candidateId = 0;
-				boolean flag = false;
-				while(itr.hasNext()){
-					
-					String positionName = (String)itr.next();
-					ArrayList<String> candidateList = candHashmap.get(positionName);
-					
-					for(String candidate: candidateList){
-						String[] candidateInfo = candidate.split(";");
-						candidateId = Integer.parseInt(candidateInfo[0]);
-						System.out.println("Debug5: Candidate Id fetching:"+candidateId);
-						if(memberId == candidateId){
-							flag = true;
-						}
-					}
-				}
-				if(flag){
-					HttpSession session = request.getSession(true);
-					session = request.getSession(true);
-					session.setAttribute("currentElection",eBean); 
-			       /* if(uBean==null)
-						System.out.println(this.getClass().getName()+" UBEAN NULL");
-					*/
-			        session.setAttribute("currentUser", uBean);
-					RequestDispatcher rd = request.getRequestDispatcher("candPref.jsp");
-					rd.forward(request, response);
-				}
-				else{
-					HttpSession session = request.getSession(true);
-					session = request.getSession(true);	    
-			        session.setAttribute("currentElection",eBean); 
-			        session.setAttribute("currentUser", uBean);
-		            RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
-		            rd.forward(request, response);
-				}
+				HttpSession session = request.getSession(true);
+				session = request.getSession(true);	    
+		        session.setAttribute("currentElection",eBean); 
+		        session.setAttribute("currentUser", uBean);
+	            RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
+	            rd.forward(request, response);
+				
 			}
 			else
 			{

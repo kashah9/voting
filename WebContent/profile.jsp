@@ -75,11 +75,9 @@
 		%>
 		</div>	
 		<div class="button row">
-	    	<!-- <input type="button" value="Save" class="previous" onclick="showLayer('page2');">
-	    	<input type="button" value="Save" class="next" onclick="showLayer('page2');"> -->
 	    	<ul class="pager">
 			    <li class="previous"><a onclick="showLayer('page2')"> &laquo; Previous</a></li>
-			    <li class="next"><a onclick="showLayer('page2')"> &raquo; Next</a></li>
+			    <li class="next"><a onclick="showLayer('page2')"> Next &raquo; </a></li>
 	  		</ul>
 	    </div>
 	</div>
@@ -91,6 +89,7 @@
 	%>
 	<div id="page2" class="page">
 	<h2 style="text-align: center;">Candidates for <%=positionName %></h2>
+	<div class="row">
 	<%
 				for(String candidate1: candidateList)
 				{
@@ -115,15 +114,16 @@
 			<%
 					}
 		    %>
-			<!-- <div class="button">
-			<ul class="pager">
-				<li class="previous"><a onclick="showLayer('page1')"> &laquo; Previous</a></li>
-			</ul>
-				<input type="submit" class="btn btn-default" value="Submit">
-			</div> -->
+		    </div>
+			<div class="button row">
+				<ul class="pager">
+					<li class="previous"><a onclick="showLayer('page1')"> &laquo; Previous</a></li>
+					<li><button type="button" value="Submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Submit Vote</button></li>
+				</ul>
+				
+			</div>
+			
 			<!-- Button trigger modal -->
-			<ul class="pager"><li class="previous"><a onclick="showLayer('page1')"> &laquo; Previous</a></li></ul>
-		 	<button type="button" value="Submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit Vote</button>
 			<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			  <div class="modal-dialog">
 			    <div class="modal-content">
@@ -158,7 +158,7 @@
 	else
 	{
 		%>
-		<h1>No Election in Progress! Come back later....</h1>
+		<h1> No Election in Progress! Please come back later....</h1>
 		<%
 	}
 %>

@@ -9,10 +9,11 @@
 <link rel="stylesheet" href="/voting/css/bootstrap.min.css">
 </head>
 <body>
-
-	<footer style="position: fixed; bottom: 70px; width: 100%; font-size: larger; text-align: center;">
-		<p>&copy; Copyright 2017 - All rights reserved by Jain Center of New Jersey</p>
-	</footer>
+	<div class="footer">
+		<footer>
+			<p>&copy; Copyright 2017 - All rights reserved by Jain Center of New Jersey</p>
+		</footer>
+	</div>
 </body>
 
 </html>

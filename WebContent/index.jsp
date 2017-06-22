@@ -5,8 +5,8 @@
     <head>
         <title>Login Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/voting/css/bootstrap.min.css">
         <link rel="stylesheet" href="/voting/css/login.css">
+        <link rel="stylesheet" href="/voting/css/bootstrap.min.css">
         <script src="/voting/js/jquery-3.2.1.min.js"></script>
         <script src="/voting/js/bootstrap.min.js"></script>
         
@@ -18,13 +18,14 @@
 	<div class="container" id="form-wrapper">
 	<div class="page-header">Jain Center of New Jersey</div>
 	  <form class="form-horizontal" action="/voting/LoginController" method="post">
-		  	<div class="form-group">
+		  	<div class="form-group margin-bottom">
 		      <label class="col-sm-2 col-sm-offset-2 control-label" for="email">Email:</label>
 		      <div class="col-sm-4">
-		        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+		        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" autofocus>
+		        <small>Please type in valid email!</small>
 		      </div>
 		    </div>
-		    <div class="form-group">
+		    <div class="form-group margin-bottom">
 		      <label class="col-sm-2 col-sm-offset-2 control-label" for="pwd">Password:</label>
 		      <div class="col-sm-4">          
 		        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
@@ -51,6 +52,7 @@
 	  </form>
 	</div>
 	<%@include file="footer.jsp" %>
+	
 </div>
 </body>
 </html>

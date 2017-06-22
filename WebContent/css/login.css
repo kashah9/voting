@@ -1,9 +1,9 @@
 .page-header {
-    font-size: xx-large;
+    font-size: 3em;
     align-content: center;
     text-align: -webkit-center;
 }
-#form-wrapper{
+div#form-wrapper{
 
     height: 100%;        /* Set this to your convenience */
     position: fixed;
@@ -16,7 +16,11 @@
 }
 body {
     background-color: #FFAE00;
+    font-family: "Comic Sans MS", cursive, sans-serif !important;
 }
 .row {
 	margin-top: 5px;
+}
+.margin-bottom {
+	margin-bottom: 20px;
 }
