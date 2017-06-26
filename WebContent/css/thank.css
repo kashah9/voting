@@ -1,0 +1,9 @@
+#btn-cand {
+	position: absolute;
+    width: 40%;
+    display: inline;
+    margin-left: 20px;
+}
+img {
+	border-radius: 12px;
+}

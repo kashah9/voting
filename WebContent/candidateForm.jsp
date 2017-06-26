@@ -14,7 +14,7 @@
 
 <script src="/voting/js/bootstrap.min.js"></script>
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+	src="/voting/js/validator.min.js"></script>
 </head>
 <body style="background-color: #FFAE00;">
 	<div>
@@ -34,7 +34,7 @@
 					<label class="col-sm-2 col-sm-offset-2 control-label">Member
 						ID</label>
 					<div class="col-sm-4">
-						<input type="number" name="id" class="form-control" required>
+						<input type="number" name="id" class="form-control" required autofocus>
 						<small class="form-text text-muted">Enter your JCNJ Membership ID</small>
 					</div>
 					<div class="help-block with-errors"></div>

@@ -5,7 +5,8 @@
 
 #form-wrapper {
 	width: 100%; /* Set this to your convenience */
-	height: 100%; /* Set this to your convenience */ margin : 0 auto;
+	height: 100%; /* Set this to your convenience */
+	margin: 0 auto;
 	top: 0;
 	left: 0;
 	bottom: 0;
@@ -98,8 +99,14 @@ label>input+figure>div>img { /* IMAGE STYLES */
 label>input:checked+figure>div>img { /* (RADIO CHECKED) IMAGE STYLES */
 	border: 3px solid #f00;
 }
+
+
 hr {
 	margin-bottom: 5px;
+}
+
+.pager li>a {
+	cursor: pointer !important;
 }
 
 /* .button input[type=button] {

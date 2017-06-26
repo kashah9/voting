@@ -44,10 +44,12 @@ public class LoginController extends HttpServlet {
 			ElectionBean eBean = new ElectionBean();
 			
 			ResultSet rs = st.executeQuery("select * from voters where email='"+email+"' AND password='"+password+"'");
+			
 			System.out.print(this.getClass().getSimpleName()+" Debug3: Query Fired ");
 			System.out.println("select * from voters where email='"+email+"' AND password='"+password+"'");
 			if(rs.next())
 			{
+				
 				System.out.print(this.getClass().getSimpleName()+" Debug4: Redirecting to profilePage ");
 				request.setAttribute("key", "success");
 				ProcessRequest preq = new ProcessRequest(conn);
@@ -63,9 +65,16 @@ public class LoginController extends HttpServlet {
 				session = request.getSession(true);	    
 		        session.setAttribute("currentElection",eBean); 
 		        session.setAttribute("currentUser", uBean);
-	            RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
-	            rd.forward(request, response);
-				
+		        
+		        rs = st.executeQuery("Select * from election_votes where voter_id = "+memberId);
+		        if(!rs.next()){
+		            RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
+		            rd.forward(request, response);
+		        }
+		        else {
+		        	RequestDispatcher rd = request.getRequestDispatcher("testSubmit.jsp?status=again");
+		            rd.forward(request, response);
+		        }
 			}
 			else
 			{

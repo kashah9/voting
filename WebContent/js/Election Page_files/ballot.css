@@ -1,0 +1,152 @@
+.header-page {
+	text-align: -webkit-center;
+	font-size: 4em;
+}
+
+#form-wrapper {
+	width: 100%; /* Set this to your convenience */
+	height: 100%; /* Set this to your convenience */
+	margin: 0 auto;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.listNum {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: x-large;
+}
+
+.w3-card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.2s;
+	border-radius: 5px;
+	margin-bottom: 15px;
+}
+
+.w3-container {
+	padding: 2px 20px;
+	background-color: #8c8473;
+	text-align: center;
+}
+
+.w3-card:hover {
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+	border-radius: 5px 5px 0 0;
+}
+
+.container {
+	background: linear-gradient(to top, #ffae00 0%, #ffe5ad 100%);
+}
+
+/* Change the font-family for card container */
+h1, h2, h3, h4, h5, h6 {
+	font-family: Georgia, serif;
+}
+
+.jumbotron p {
+	font-family: Georgia, serif;
+	font-size: small;
+}
+
+.w3-bar {
+	display: inline-block;
+}
+
+.navMenu {
+	margin-top: 30px;
+	position: relative;
+}
+
+.secHeader {
+	text-align: -webkit-center;
+	margin-top: 150px;
+	margin-bottom: 30px;
+}
+
+.page {
+	width: 84%;
+	margin: 0 auto;
+	position: absolute;
+	visibility: hidden;
+}
+
+.label {
+	display: block;
+	text-align: center;
+	font-size: 2.5em;
+	color: black;
+}
+
+.images {
+	display: inline-block;
+}
+
+label>input { /* HIDE RADIO */
+	visibility: hidden; /* Makes input not-clickable */
+	position: absolute; /* Remove input from document flow */
+}
+
+label>input+figure>div>img { /* IMAGE STYLES */
+	cursor: pointer;
+	border: 2px solid transparent;
+}
+
+label>input:checked+figure>div>img { /* (RADIO CHECKED) IMAGE STYLES */
+	border: 3px solid #f00;
+}
+
+
+hr {
+	margin-bottom: 5px;
+}
+
+.pager li>a {
+	cursor: pointer !important;
+}
+
+/* .button input[type=button] {
+    padding: 10px 15px 11px !important;
+	font-size: 18px !important;
+	background-color: #57d6c7;
+	font-weight: bold;
+	text-shadow: 1px 1px #57D6C7;
+	color: #ffffff;
+	border-radius: 7px;
+	border: 1px solid #57D6C7;
+	cursor: pointer;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+	display: block;
+	width: 100%;
+	position: absolute;
+	
+} */
+/* input[type=button]:hover {
+    background-color:rgba(255,204,0,0.8);
+} */
+
+/* .button input[type=submit]
+{
+	padding: 10px 15px 11px !important;
+	font-size: 18px !important;
+	background-color: #57d6c7;
+	font-weight: bold;
+	text-shadow: 1px 1px #57D6C7;
+	color: #ffffff;
+	border-radius: 7px;
+	border: 1px solid #57D6C7;
+	cursor: pointer;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+	display: block;
+	width: 100%;
+	position: relative;
+	
+}
+input[type=submit]:hover {
+    background-color:rgba(255,204,0,0.8);
+}
+ */

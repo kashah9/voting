@@ -1,7 +1,7 @@
 .footer footer {
-	position: fixed; 
-	bottom: 50px; 
-	width: 100%; 
-	font-size: larger; 
-	text-align: center;	
+	position: fixed;
+	bottom: 30px;
+	width: 100%;
+	font-size: larger;
+	text-align: center;
 }

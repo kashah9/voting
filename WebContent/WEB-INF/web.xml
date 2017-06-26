@@ -24,4 +24,13 @@
     <servlet-name>FileUploadController</servlet-name>
     <url-pattern>/upload.jsp</url-pattern>
   </servlet-mapping> -->
+  
+  <servlet>
+    <servlet-name>VotingController</servlet-name>
+    <servlet-class>voting/VotingController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VotingController</servlet-name>
+    <url-pattern>/thankYou.jsp</url-pattern>
+  </servlet-mapping>
 </web-app>

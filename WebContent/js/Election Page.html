@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0044)http://localhost:8080/voting/LoginController -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+
+<link rel="stylesheet" href="./Election Page_files/ballot.css">
+<link rel="stylesheet" href="./Election Page_files/bootstrap.min.css">
+<script src="./Election Page_files/jquery-3.2.1.min.js.download"></script>
+<script src="./Election Page_files/bootstrap.min.js.download"></script>
+<script src="./Election Page_files/showPage.js.download"></script>
+
+<title>Election Page</title>
+</head>
+
+<body style="background-color: #FFAE00">
+	<div class="votePages" id="form-wrapper">
+		<div class="container">
+			<h1 class="header-page">Ballot Paper</h1>
+			<hr>
+			<form action="http://localhost:8080/voting/thankYou.jsp" class="voteForm" method="post">
+
+				
+				<div id="page1" class="page" style="visibility: visible;">
+					<h2 style="text-align: center;">
+						Candidates for
+						President</h2>
+					<div class="row">
+						
+
+						<div class="col-sm-4 w3-card w3-left w3-hover-opacity w3-display-container">
+							<label> <input type="radio" name="President" value="106"> <figure>
+								<div class="w3-card-4" style="width: 100%">
+									<img src="./Election Page_files/grad4201706221155511.jpg" style="width: 100%;">
+									<div class="w3-container w3-center">
+										<input type="checkbox" name="vehicle" value="Bike">
+										<a href="http://localhost:8080/voting/candidate.jsp"><p>Victor Riddik</p></a><br>
+									</div>
+								</div>
+								</figure>
+							</label>
+						</div>
+
+						<input type="hidden" name="electionID" value="1"> 
+						<input type="hidden" name="member_id" value="101">
+
+						
+
+						<div class="col-sm-4 w3-card w3-left w3-hover-opacity w3-display-container">
+							<label> <input type="radio" name="President" value="102"> <figure>
+								<div class="w3-card-4" style="width: 100%">
+									<img src="./Election Page_files/IMG_5815201706220239287.jpg" style="width: 100%;">
+									<div class="w3-container w3-center">
+										<input type="checkbox" name="vehicle" value="Bike">
+										<a href="http://localhost:8080/voting/candidate.jsp"><p>Jessica Bell</p></a><br>
+									</div>
+								</div>
+								</figure>
+							</label>
+						</div>
+
+						<input type="hidden" name="electionID" value="1"> 
+						<input type="hidden" name="member_id" value="101">
+
+						
+
+						<div class="col-sm-4 w3-card w3-left w3-hover-opacity w3-display-container">
+							<label> <input type="radio" name="President" value="101"> <figure>
+								<div class="w3-card-4" style="width: 100%">
+									<img src="./Election Page_files/grad4201706220238255.jpg" style="width: 100%;">
+									<div class="w3-container w3-center">
+										
+										<a href="http://localhost:8080/voting/candidate.jsp"><input type="checkbox" name="vehicle" value=""><p>Alex Smith</p></a>
+
+
+									</div>
+								</div>
+								</figure>
+							</label>
+						</div>
+
+						<input type="hidden" name="electionID" value="1"> 
+						<input type="hidden" name="member_id" value="101">
+
+						
+					</div>
+					<div class="button row">
+						<ul class="pager">
+							<li class="previous"><a onclick="showLayer(&#39;page2&#39;)">
+									« Previous</a></li>
+							<li class="next"><a onclick="showLayer(&#39;page2&#39;)"> Next
+									» </a></li>
+						</ul>
+					</div>
+				</div>
+
+				
+				<div id="page2" class="page">
+					<h2 style="text-align: center;">
+						Candidates for
+						Chairman</h2>
+					<div class="row">
+						
+						<div class="col-sm-4 w3-card w3-left w3-hover-opacity w3-display-container">
+							<label> <input type="radio" name="Chairman" value="103"> <figure>
+								<div class="w3-card-4" style="width: 100%">
+									<img src="./Election Page_files/grad3201706220240595.jpg" style="width: 100%;">
+									<div class="w3-container w3-center">
+										<p>Martha McClamb</p>
+									</div>
+								</div>
+								</figure>
+							</label>
+						</div>
+
+						<input type="hidden" name="electionID" value="1"> <input type="hidden" name="member_id" value="101">
+						
+						<div class="col-sm-4 w3-card w3-left w3-hover-opacity w3-display-container">
+							<label> <input type="radio" name="Chairman" value="109"> <figure>
+								<div class="w3-card-4" style="width: 100%">
+									<img src="./Election Page_files/IMG_5819201706231201133.jpg" style="width: 100%;">
+									<div class="w3-container w3-center">
+										<p>Karan Shah</p>
+									</div>
+								</div>
+								</figure>
+							</label>
+						</div>
+
+						<input type="hidden" name="electionID" value="1"> <input type="hidden" name="member_id" value="101">
+						
+						<div class="col-sm-4 w3-card w3-left w3-hover-opacity w3-display-container">
+							<label> <input type="radio" name="Chairman" value="106"> <figure>
+								<div class="w3-card-4" style="width: 100%">
+									<img src="./Election Page_files/IMG_5816201706230429816.jpg" style="width: 100%;">
+									<div class="w3-container w3-center">
+										<p>Victor Riddik</p>
+									</div>
+								</div>
+								</figure>
+							</label>
+						</div>
+
+						<input type="hidden" name="electionID" value="1"> <input type="hidden" name="member_id" value="101">
+						
+					</div>
+					<div class="button row">
+						<ul class="pager">
+							<li class="previous"><a onclick="showLayer(&#39;page1&#39;)">
+									« Previous</a></li>
+							<li><button type="button" value="Submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Submit Vote</button></li>
+						</ul>
+
+					</div>
+
+					<!-- Button trigger modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h3 class="modal-title" id="exampleModalLabel">Submit Vote</h3>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">×</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>Do you really want to SUBMIT the vote???</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+									<input type="submit" class="btn btn-primary" value="Submit Vote">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+			</form>
+		</div>
+	</div>
+	
+
+
+</body></html>
