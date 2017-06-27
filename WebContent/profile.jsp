@@ -203,16 +203,6 @@
 		}
 		function summary() {
 
-			/* 	alert("Hello");
-			 console.log(document.getElementById('r1').value);
-			 if (document.getElementById('r1').checked) {
-			
-			 var selection = document.getElementById('r1').value;
-			 document.getElementById('summary').innerHTML = "You selected"+selection;
-			
-			 }
-			 */
-
 			// for two positions for now (manually add id for each position)
 			var selectedVal = "";
 			var selectedLabel1 = $("#label1 input[type='radio']:checked");
