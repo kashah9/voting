@@ -9,3 +9,4 @@ function showLayer(lyr) {
 function hideLayer(lyr) {
     document.getElementById(lyr).style.visibility = 'hidden';
 }
+

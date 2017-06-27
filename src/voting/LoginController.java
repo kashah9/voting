@@ -68,7 +68,8 @@ public class LoginController extends HttpServlet {
 		        
 		        rs = st.executeQuery("Select * from election_votes where voter_id = "+memberId);
 		        if(!rs.next()){
-		            RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
+		        	
+		            RequestDispatcher rd = request.getRequestDispatcher("options.jsp");
 		            rd.forward(request, response);
 		        }
 		        else {

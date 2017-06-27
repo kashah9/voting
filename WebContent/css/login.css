@@ -1,10 +1,9 @@
 .page-header {
-    font-size: 3em;
+    font-size: 3vw;
     align-content: center;
     text-align: -webkit-center;
 }
 div#form-wrapper{
-
     height: 100%;        /* Set this to your convenience */
     position: fixed;
     margin: 0 auto;

@@ -27,7 +27,7 @@
 
 .w3-container {
 	padding: 2px 20px;
-	background-color: #8c8473;
+	background-color: #7FA8FF;
 	text-align: center;
 }
 
@@ -107,6 +107,13 @@ hr {
 
 .pager li>a {
 	cursor: pointer !important;
+}
+
+#candLink a{
+	color: #f80570 !important;
+	text-decoration: none;
+	font-size: 15px;
+	
 }
 
 /* .button input[type=button] {

@@ -45,23 +45,25 @@
 						<%=positionName%></h2>
 					<div class="row">
 						<%
-							for (String candidate : candidateList) {
-											String[] candidateInfo = candidate.split(";");
+							for (int i = 0; i < candidateList.size(); i++) {
+											String[] candidateInfo = candidateList.get(i).split(";");
 						%>
 
 						<div
 							class="col-sm-4 w3-card w3-left w3-hover-opacity w3-display-container">
-							<label> <input type="radio" name="<%=positionName%>"
-								value="<%=candidateInfo[0]%>" /> <figure>
+							<label id="label1"> <input type="radio"
+								name="<%=positionName%>" value="<%=candidateInfo[0]%>"
+								onclick="onInputClick('<%=candidateList.get(i)%>', '<%=positionName %>')" /> <figure>
 								<div class="w3-card-4" style="width: 100%">
 									<img
 										src="${pageContext.request.contextPath}/images/<%=candidateInfo[2] %>"
 										style="width: 100%;" />
-									<div class="w3-container w3-center">
-										<a href="candidate.jsp"><p>
-												<input type="checkbox" name="vehicle"
-													value="<%=candidateInfo[1]%>">&emsp;<%=candidateInfo[1]%>
-													</p></a>
+									<div id="candLink" class="w3-container w3-center">
+										<a href="candidate.jsp" target="_blank"><p>
+												<input type="checkbox" name="<%=candidateInfo[1]%>"
+													value="<%=candidateInfo[1]%>">&emsp;
+												<%=candidateInfo[1]%>
+											</p></a>
 									</div>
 								</div>
 								</figure>
@@ -79,10 +81,9 @@
 					</div>
 					<div class="button row">
 						<ul class="pager">
-							<li class="previous"><a onclick="showLayer('page2')">
-									&laquo; Previous</a></li>
-							<li class="next"><a onclick="showLayer('page2')"> Next
-									&raquo; </a></li>
+
+							<li class="next"><a id="a_next" onclick="showLayer('page2')">
+									Skip / No Trust &raquo; </a></li>
 						</ul>
 					</div>
 				</div>
@@ -98,19 +99,24 @@
 						<%=positionName%></h2>
 					<div class="row">
 						<%
-							for (String candidate1 : candidateList) {
-											String[] candidateInfo1 = candidate1.split(";");
+						for (int j = 0; j < candidateList.size(); j++) {
+							String[] candidateInfo1 = candidateList.get(j).split(";");
 						%>
 						<div
 							class="col-sm-4 w3-card w3-left w3-hover-opacity w3-display-container">
-							<label> <input type="radio" name="<%=positionName%>"
-								value="<%=candidateInfo1[0]%>" /> <figure>
+							<label id="label2"> <input id="r1" type="radio"
+								name="<%=positionName%>" value="<%=candidateInfo1[0]%>" 
+								onclick="onInputClick('<%=candidateList.get(j)%>', '<%=positionName %>')" /> <figure>
 								<div class="w3-card-4" style="width: 100%">
 									<img
 										src="${pageContext.request.contextPath}/images/<%=candidateInfo1[2] %>"
 										style="width: 100%;" />
-									<div class="w3-container w3-center">
-										<p><%=candidateInfo1[1]%></p>
+									<div id="candLink" class="w3-container w3-center">
+										<a href="candidate.jsp" target="_blank"><p>
+												<input type="checkbox" name="<%=candidateInfo1[1]%>"
+													value="<%=candidateInfo1[1]%>">&emsp;
+												<%=candidateInfo1[1]%>
+											</p></a>
 									</div>
 								</div>
 								</figure>
@@ -131,7 +137,7 @@
 									&laquo; Previous</a></li>
 							<li><button type="button" value="Submit"
 									class="btn btn-primary btn-lg" data-toggle="modal"
-									data-target="#myModal">Submit Vote</button></li>
+									data-target="#myModal" onclick="summary()">Submit Vote</button></li>
 						</ul>
 
 					</div>
@@ -149,6 +155,7 @@
 									</button>
 								</div>
 								<div class="modal-body">
+									<p id="summary"></p>
 									<p>Do you really want to SUBMIT the vote???</p>
 								</div>
 								<div class="modal-footer">
@@ -179,5 +186,53 @@
 		}
 	%>
 
+	<script>
+		//var flag = true;
+		var name1;
+		var name2;
+		function onInputClick(candidate, position) {
+			var candidateInfo = candidate.split(";");
+			for(var i = 0; i < candidateInfo.length; i++) {
+				if(position == "President"){
+					name1 = candidateInfo[1];
+				}
+				if(position == "Chairman"){
+					name2 = candidateInfo[1];
+				}
+			}
+		}
+		function summary() {
+
+			/* 	alert("Hello");
+			 console.log(document.getElementById('r1').value);
+			 if (document.getElementById('r1').checked) {
+			
+			 var selection = document.getElementById('r1').value;
+			 document.getElementById('summary').innerHTML = "You selected"+selection;
+			
+			 }
+			 */
+
+			// for two positions for now (manually add id for each position)
+			var selectedVal = "";
+			var selectedLabel1 = $("#label1 input[type='radio']:checked");
+			var selectedLabel2 = $("#label2 input[type='radio']:checked");
+			if (selectedLabel1.length > 0 || selectedLabel2.length > 0) {
+				selectedVal1 = selectedLabel1.val();
+				selectedVal2 = selectedLabel2.val();
+			}
+			//console.log();
+		document.getElementById('summary').innerHTML = "Your selection Summary <br>"
+					+ selectedVal1 + " President -> "+name1 + "<br>" + selectedVal2 + " Chairman -> " + name2;
+		}
+
+		$('input:radio').change(function() {
+			if ($(this).val() == true) {
+				$("#a_next").text('Hello');
+			} else {
+				$("#a_next").text('Go to Next');
+			}
+		});
+	</script>
 </body>
 </html>
