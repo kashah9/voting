@@ -13,7 +13,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/voting/js/showPage.js"></script>
-
+<script src="/voting/js/ballot.js"></script>
 <title>Election Page</title>
 </head>
 
@@ -185,44 +185,15 @@
 	<%
 		}
 	%>
-
 	<script>
-		//var flag = true;
-		var name1;
-		var name2;
-		function onInputClick(candidate, position) {
-			var candidateInfo = candidate.split(";");
-			for(var i = 0; i < candidateInfo.length; i++) {
-				if(position == "President"){
-					name1 = candidateInfo[1];
-				}
-				if(position == "Chairman"){
-					name2 = candidateInfo[1];
-				}
-			}
+	$('input:radio').change(function() {
+		if ($(this).val() == true) {
+			$("#a_next").text('Hello');
+		} else {
+			$("#a_next").text('Go to Next');
 		}
-		function summary() {
-
-			// for two positions for now (manually add id for each position)
-			var selectedVal = "";
-			var selectedLabel1 = $("#label1 input[type='radio']:checked");
-			var selectedLabel2 = $("#label2 input[type='radio']:checked");
-			if (selectedLabel1.length > 0 || selectedLabel2.length > 0) {
-				selectedVal1 = selectedLabel1.val();
-				selectedVal2 = selectedLabel2.val();
-			}
-			//console.log();
-		document.getElementById('summary').innerHTML = "Your selection Summary <br>"
-					+ selectedVal1 + " President -> "+name1 + "<br>" + selectedVal2 + " Chairman -> " + name2;
-		}
-
-		$('input:radio').change(function() {
-			if ($(this).val() == true) {
-				$("#a_next").text('Hello');
-			} else {
-				$("#a_next").text('Go to Next');
-			}
-		});
+	});
+	
 	</script>
 </body>
 </html>

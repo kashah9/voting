@@ -57,11 +57,7 @@
 					</div>
 				</div>
 			</form>
-			<!-- <div class="row">
-				<div class="col-sm-4 col-sm-offset-2">
-					<a href="candidate.jsp" type="button" class="btn btn-primary btn-lg">Candidate List</a>
-				</div>
-			</div> -->
+			
 		</div>
 		<%@include file="footer.jsp"%>
 	</div>

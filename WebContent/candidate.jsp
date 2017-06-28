@@ -9,7 +9,7 @@
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="/voting/css/custom.css">
+<link rel="stylesheet" href="/voting/css/candidate.css">
 <link
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet">
@@ -79,8 +79,8 @@
 			</div>
 		</div>
 
-<!-- page-content col-sm-9 -->
-		<div id="profile" class="">
+		<!-- page-content col-sm-9 -->
+		<div id="profile" class="page-content col-sm-9">
 			<%
 				positionCandidateMap = eBean.getPositionCandidateMap();
 				set = positionCandidateMap.keySet();
@@ -103,8 +103,8 @@
 					<div class="media-left">
 						<img src="/voting/images/<%=candidateInfo[2]%>"
 							alt="Candidate Image shold be displayed here"
-							class="media-object" width= "400px">
-							<h4 class="media-heading"><%=candidateInfo[1]%></h4>
+							class="media-object" width="400px">
+						<h4 class="media-heading"><%=candidateInfo[1]%></h4>
 					</div>
 					<div class="media-body">
 						Profile Information:
@@ -125,7 +125,8 @@
 		<div id="welcome" class="col-sm-9 welcome-page">
 			<h1 class="cand-header">Welcome to Candidate Profiles!</h1>
 
-			<img src="/voting/images/derasar.jpg" class="media-object" width= "400px">
+			<img src="/voting/images/derasar.jpg" class="media-object"
+				width="400px">
 		</div>
 		<%@include file="footer.jsp"%>
 	</div>
