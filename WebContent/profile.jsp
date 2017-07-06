@@ -17,9 +17,17 @@
 <title>Election Page</title>
 </head>
 
+<%
+	// Disabling the browser back button which fetches data from cache memory
+	response.setHeader("Cache-Control", "no-cache"); // Forces caches to obtain a new copy of the page from the origin server
+	response.setHeader("Cache-Control", "no-store"); // Directs caches not to store the page under any circumstance
+	response.setDateHeader("Expires", 0); //Causes the proxy cache to see the page as "stale"
+%>
+
 <body style="background-color: #FFAE00">
 	<div class="votePages" id="form-wrapper">
 		<div class="container">
+			<%@include file="mainMenu.jsp"%>
 			<h1 class="header-page">Ballot Paper</h1>
 			<hr>
 			<form action="thankYou.jsp" class="voteForm" method="post">
@@ -40,9 +48,19 @@
 							if (positionName.equals("President")) {
 				%>
 				<div id="page1" class="page" style="visibility: visible;">
-					<h2 style="text-align: center;">
-						Candidates for
-						<%=positionName%></h2>
+					<div class="row">
+						<div class="col-md-4">
+							<p style="align: center; font-size: 2vw;">
+								Candidates for
+								<%=positionName%></p>
+						</div>
+						<div class="col-md-4 col-md-offset-4" id="Counter">
+							<p style="font-size: 2vw;">
+								<span class="label label-primary">Hello</span>
+							</p>
+						</div>
+					</div>
+
 					<div class="row">
 						<%
 							for (int i = 0; i < candidateList.size(); i++) {
@@ -53,7 +71,8 @@
 							class="col-sm-4 w3-card w3-left w3-hover-opacity w3-display-container">
 							<label id="label1"> <input type="radio"
 								name="<%=positionName%>" value="<%=candidateInfo[0]%>"
-								onclick="onInputClick('<%=candidateList.get(i)%>', '<%=positionName %>')" /> <figure>
+								onclick="onInputClick('<%=candidateList.get(i)%>', '<%=positionName%>')" />
+								<figure>
 								<div class="w3-card-4" style="width: 100%">
 									<img
 										src="${pageContext.request.contextPath}/images/<%=candidateInfo[2] %>"
@@ -99,14 +118,15 @@
 						<%=positionName%></h2>
 					<div class="row">
 						<%
-						for (int j = 0; j < candidateList.size(); j++) {
-							String[] candidateInfo1 = candidateList.get(j).split(";");
+							for (int j = 0; j < candidateList.size(); j++) {
+											String[] candidateInfo1 = candidateList.get(j).split(";");
 						%>
 						<div
 							class="col-sm-4 w3-card w3-left w3-hover-opacity w3-display-container">
 							<label id="label2"> <input id="r1" type="radio"
-								name="<%=positionName%>" value="<%=candidateInfo1[0]%>" 
-								onclick="onInputClick('<%=candidateList.get(j)%>', '<%=positionName %>')" /> <figure>
+								name="<%=positionName%>" value="<%=candidateInfo1[0]%>"
+								onclick="onInputClick('<%=candidateList.get(j)%>', '<%=positionName%>')" />
+								<figure>
 								<div class="w3-card-4" style="width: 100%">
 									<img
 										src="${pageContext.request.contextPath}/images/<%=candidateInfo1[2] %>"
@@ -135,39 +155,127 @@
 						<ul class="pager">
 							<li class="previous"><a onclick="showLayer('page1')">
 									&laquo; Previous</a></li>
+
+							<li class="next"><a id="a_next" onclick="showLayer('page3')">
+									Skip / No Trust &raquo; </a></li>
+						</ul>
+
+					</div>
+				</div>
+				<%
+					}
+							if (positionName.equals("EC")) {
+				%>
+
+				<div id="page3" class="page">
+					<h2 style="text-align: center;">
+						Candidates for
+						<%=positionName%></h2>
+					<div class="row">
+						<table class="table table-hover table-stripped">
+							<thead>
+								<tr>
+									<th>Profile of Candidates</th>
+									<th>Name</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<%
+											for (int j = 0; j < candidateList.size(); j++) {
+															String[] candidateInfo2 = candidateList.get(j).split(";");
+										%>
+
+
+										<div class="w3-card-4" style="width: 100%">
+											<img
+												src="${pageContext.request.contextPath}/images/<%=candidateInfo2[2] %>"
+												style="width: 100%;" />
+										</div>
+										<%
+ 												}
+ 											%>
+									</td>
+									<td>
+									<%
+											for (int j = 0; j < candidateList.size(); j++) {
+															String[] candidateInfo2 = candidateList.get(j).split(";");
+										%>
+									<a href="candidate.jsp" target="_blank"><p>
+												<input type="checkbox" name="<%=candidateInfo2[1]%>"
+													value="<%=candidateInfo2[1]%>">&emsp;
+												<%=candidateInfo2[1]%>
+											</p></a> 
+											<%
+ 												}
+ 											%>
+ 									</td>
+								</tr>
+							</tbody>
+						</table>
+						<%-- <label id="label3"> <input id="r1" type="radio"
+								name="<%=positionName%>" value="<%=candidateInfo2[0]%>"
+								onclick="onInputClick('<%=candidateList.get(j)%>', '<%=positionName%>')" />
+								<figure>
+								<div class="w3-card-4" style="width: 100%">
+									<img
+										src="${pageContext.request.contextPath}/images/<%=candidateInfo2[2] %>"
+										style="width: 100%;" />
+									<div id="candLink" class="w3-container w3-center">
+										<a href="candidate.jsp" target="_blank"><p>
+												<input type="checkbox" name="<%=candidateInfo2[1]%>"
+													value="<%=candidateInfo2[1]%>">&emsp;
+												<%=candidateInfo2[1]%>
+											</p></a>
+									</div>
+								</div>
+								</figure>
+							</label> --%>
+
+						<input type="hidden" name="electionID"
+							value="<%=(int) eBean.getElectionId()%>"> <input
+							type="hidden" name="member_id"
+							value="<%=(int) uBean.getMember_id()%>">
+
+					</div>
+					<div class="button row">
+						<ul class="pager">
+							<li class="previous"><a onclick="showLayer('page2')">
+									&laquo; Previous</a></li>
 							<li><button type="button" value="Submit"
 									class="btn btn-primary btn-lg" data-toggle="modal"
 									data-target="#myModal" onclick="summary()">Submit Vote</button></li>
 						</ul>
-
 					</div>
+				</div>
 
-					<!-- Button trigger modal -->
-					<div class="modal fade" id="myModal" tabindex="-1"
-						aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h3 class="modal-title" id="exampleModalLabel">Submit Vote</h3>
-									<button type="button" class="close" data-dismiss="modal"
-										aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<p id="summary"></p>
-									<p>Do you really want to SUBMIT the vote???</p>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">Cancel</button>
-									<input type="submit" class="btn btn-primary"
-										value="Submit Vote">
-								</div>
+
+				<!-- Button trigger modal -->
+				<div class="modal fade" id="myModal" tabindex="-1"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h3 class="modal-title" id="exampleModalLabel">Submit Vote</h3>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p id="summary"></p>
+								<p>Do you really want to SUBMIT the vote???</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Cancel</button>
+								<input type="submit" class="btn btn-primary" value="Submit Vote">
 							</div>
 						</div>
 					</div>
 				</div>
+
 
 				<%
 					}
@@ -186,14 +294,13 @@
 		}
 	%>
 	<script>
-	$('input:radio').change(function() {
-		if ($(this).val() == true) {
-			$("#a_next").text('Hello');
-		} else {
-			$("#a_next").text('Go to Next');
-		}
-	});
-	
+		$('input:radio').change(function() {
+			if ($(this).val() == true) {
+				$("#a_next").text('Hello');
+			} else {
+				$("#a_next").text('Go to Next');
+			}
+		});
 	</script>
 </body>
 </html>

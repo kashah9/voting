@@ -10,6 +10,9 @@
 <script src="/voting/js/jquery-3.2.1.min.js"></script>
 <script src="/voting/js/bootstrap.min.js"></script>
 <script src="/voting/js/validator.min.js"></script>
+<script>
+	document.getElementById("logout").style.display = "none";
+</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
@@ -36,6 +39,11 @@
 					</div>
 					<div class="help-block with-errors"></div>
 				</div>
+				<div class="form-group">
+				<label id="logout">
+					<%=request.getParameter("logout")%>
+				</label>
+				</div>
 				<%
 					String key = (String) request.getAttribute("key");
 					if (key != null) {
@@ -44,11 +52,14 @@
 				<div class="form-group margin-bottom">
 					<label class="control-label col-sm-4 col-sm-offset-4"
 						style="color: RED;">Please Enter Valid Email/Password
-						Combination</label>
+						Combination
+					</label>
 				</div>
+				
 				<%
 					}
-				%>
+					
+					%>  
 				<div class="form-group">
 					<label class="col-sm-offset-2 col-sm-2"></label>
 					<div class="col-sm-4">

@@ -63,7 +63,7 @@ public class ProcessRequest {
 			itr = set.iterator();
 			while (itr.hasNext()) {
 				Map.Entry<String, ArrayList> entry = (Entry<String, ArrayList>) itr.next();
-				System.out.println(entry.toString());
+				System.out.println("Debug Karan:"+entry.toString());
 			}
 		} else {
 			eBean = new ElectionBean();

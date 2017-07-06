@@ -64,7 +64,7 @@
 							<option value="" default>Select Option</option>
 							<option value="President">President</option>
 							<option value="Chairman">Chairman</option>
-							<option value="Treasurer">Treasurer</option>
+							<option value="EC">EC</option>
 						</select>
 					</div>
 					<div class="help-block with-errors"></div>

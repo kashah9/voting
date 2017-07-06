@@ -15,6 +15,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -93,13 +94,18 @@ public class candidateFormController extends HttpServlet {
 			CandidateBean cBean = new CandidateBean(candidateName, tempFile, candidateProfile, candidateAddress,
 					candidatePosition);
 
-			String sql = "insert into election_candidates VALUES(1, " + Integer.parseInt(candidateId) + ", '"
-					+ candidatePosition + "', '" + tempFile + "', '" + candidateProfile + "', '" + candidateAddress
-					+ "');";
-			st.executeUpdate(sql);
-
-			System.out.println(this.getClass().getSimpleName() + "Debug: Query fired");
-			System.out.println(sql);
+			String sql = "select * from election_candidates where election_id = 1 and candidate_id = '"+candidateId+"'";
+			ResultSet rs = st.executeQuery(sql);
+			if(rs.next()){
+				String updateSQL = "update election_candidates SET image_url = '"+tempFile+"', description = '"+candidateProfile+"', Address = '"+candidateAddress+"' where candidate_id = '"+candidateId+"'";
+				st.executeUpdate(updateSQL);
+			}
+			else {
+				String insertSQL = "insert into election_candidates values(1,"+candidateId+",'"+candidatePosition+"','"+tempFile+"','"+candidateProfile+"', '"+candidateAddress+"')";
+				st.executeUpdate(insertSQL);
+			}
+			RequestDispatcher rd = request.getRequestDispatcher("sucess.jsp");
+            rd.forward(request, response);
 
 		} catch (Exception e) {
 			e.printStackTrace();

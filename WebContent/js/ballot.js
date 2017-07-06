@@ -9,11 +9,14 @@ function onInputClick(candidate, position) {
 		if (position == "Chairman") {
 			name2 = candidateInfo[1];
 		}
+		if(position == "EC") {
+			name3 = candidateInfo[1];
+		}
 	}
 }
 function summary() {
 
-	// for two positions for now (manually add id for each position)
+	// for two positions (manually add id for each position)
 	var selectedVal = "";
 	var selectedLabel1 = $("#label1 input[type='radio']:checked");
 	var selectedLabel2 = $("#label2 input[type='radio']:checked");

@@ -18,7 +18,11 @@
     session.invalidate(); 
    
 	%>
-	<h2 class="page-header">You are successfully logged out!</h2>
+	
+	<h2 class="page-header">You're successfully logged out! Please close this window for your security!</h2>
+	<jsp:forward page="index.jsp">
+		<jsp:param name="logout" value="You have successfully logged out!" />
+	</jsp:forward> 
 	</div>
 	</div>
 
