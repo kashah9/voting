@@ -26,8 +26,8 @@
 
 <body style="background-color: #FFAE00">
 	<div class="votePages" id="form-wrapper">
+		<%@include file="mainMenu.jsp"%>
 		<div class="container">
-			<%@include file="mainMenu.jsp"%>
 			<h1 class="header-page">Ballot Paper</h1>
 			<hr>
 			<form action="thankYou.jsp" class="voteForm" method="post">
@@ -54,11 +54,7 @@
 								Candidates for
 								<%=positionName%></p>
 						</div>
-						<div class="col-md-4 col-md-offset-4" id="Counter">
-							<p style="font-size: 2vw;">
-								<span class="label label-primary">Hello</span>
-							</p>
-						</div>
+
 					</div>
 
 					<div class="row">
@@ -168,15 +164,22 @@
 				%>
 
 				<div id="page3" class="page">
+
 					<h2 style="text-align: center;">
 						Candidates for
 						<%=positionName%></h2>
+
+					<div id="Counter">
+						<p style="font-size: 2vw;">
+							<span class="label label-primary">Hello</span>
+						</p>
+					</div>
 					<div class="row">
-						<table class="table table-hover table-stripped">
+						<table class="table table-stripped">
 							<thead>
 								<tr>
-									<th>Profile of Candidates</th>
-									<th>Name</th>
+									<th>Profile Image of Candidates</th>
+									<th>Candidate Name</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -187,52 +190,32 @@
 															String[] candidateInfo2 = candidateList.get(j).split(";");
 										%>
 
-
-										<div class="w3-card-4" style="width: 100%">
+										<div class="card">
 											<img
-												src="${pageContext.request.contextPath}/images/<%=candidateInfo2[2] %>"
-												style="width: 100%;" />
-										</div>
+													src="${pageContext.request.contextPath}/images/<%=candidateInfo2[2] %>"
+													style="width: 100%;" />
+											</div>
+										</div> 
 										<%
- 												}
- 											%>
+											}
+										%>
 									</td>
 									<td>
-									<%
+										<%
 											for (int j = 0; j < candidateList.size(); j++) {
 															String[] candidateInfo2 = candidateList.get(j).split(";");
-										%>
-									<a href="candidate.jsp" target="_blank"><p>
-												<input type="checkbox" name="<%=candidateInfo2[1]%>"
+										%> <a href="candidate.jsp" target="_blank"><p>
+												<input type="checkbox" class="checkbox" name="<%=candidateInfo2[1]%>"
 													value="<%=candidateInfo2[1]%>">&emsp;
 												<%=candidateInfo2[1]%>
-											</p></a> 
-											<%
- 												}
- 											%>
- 									</td>
+											</p></a> <%
+ 	}
+ %>
+									</td>
 								</tr>
 							</tbody>
 						</table>
-						<%-- <label id="label3"> <input id="r1" type="radio"
-								name="<%=positionName%>" value="<%=candidateInfo2[0]%>"
-								onclick="onInputClick('<%=candidateList.get(j)%>', '<%=positionName%>')" />
-								<figure>
-								<div class="w3-card-4" style="width: 100%">
-									<img
-										src="${pageContext.request.contextPath}/images/<%=candidateInfo2[2] %>"
-										style="width: 100%;" />
-									<div id="candLink" class="w3-container w3-center">
-										<a href="candidate.jsp" target="_blank"><p>
-												<input type="checkbox" name="<%=candidateInfo2[1]%>"
-													value="<%=candidateInfo2[1]%>">&emsp;
-												<%=candidateInfo2[1]%>
-											</p></a>
-									</div>
-								</div>
-								</figure>
-							</label> --%>
-
+						
 						<input type="hidden" name="electionID"
 							value="<%=(int) eBean.getElectionId()%>"> <input
 							type="hidden" name="member_id"
@@ -301,6 +284,16 @@
 				$("#a_next").text('Go to Next');
 			}
 		});
+		
+		var counterCandidates = 0; 
+        $('.checkbox').on('click', function() { 
+            if (this.checked) {
+            	counterCandidates++;                 
+            } else {
+            	counterCandidates--;
+            }
+            $('#Counter').html( 'You have selected ' + counterCandidates + ' candidates so far!');             
+    	})
 	</script>
 </body>
 </html>
