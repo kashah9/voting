@@ -5,6 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>Election Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <link rel="stylesheet" href="/voting/css/ballot.css">
@@ -14,7 +15,22 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/voting/js/showPage.js"></script>
 <script src="/voting/js/ballot.js"></script>
-<title>Election Page</title>
+<style>
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 30%;
+	border-radius: 5px;
+}
+
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+	border-radius: 5px 5px 0 0;
+}
+</style>
 </head>
 
 <%
@@ -27,9 +43,10 @@
 <body style="background-color: #FFAE00">
 	<div class="votePages" id="form-wrapper">
 		<%@include file="mainMenu.jsp"%>
-		<div class="container">
+		
 			<h1 class="header-page">Ballot Paper</h1>
 			<hr>
+			<div class="container">
 			<form action="thankYou.jsp" class="voteForm" method="post">
 
 				<%
@@ -47,6 +64,7 @@
 							ArrayList<String> candidateList = positionCandidateMap.get(positionName);
 							if (positionName.equals("President")) {
 				%>
+				 
 				<div id="page1" class="page" style="visibility: visible;">
 					<div class="row">
 						<div class="col-md-4">
@@ -152,7 +170,7 @@
 							<li class="previous"><a onclick="showLayer('page1')">
 									&laquo; Previous</a></li>
 
-							<li class="next"><a id="a_next" onclick="showLayer('page3')">
+							<li class="next"><a id="a_next2" onclick="showLayer('page3')">
 									Skip / No Trust &raquo; </a></li>
 						</ul>
 
@@ -170,58 +188,55 @@
 						<%=positionName%></h2>
 
 					<div id="Counter">
-						<p style="font-size: 2vw;">
-							<span class="label label-primary">Hello</span>
-						</p>
+						<p style="font-size: 2vw;">Counter</p>
 					</div>
-					<div class="row">
-						<table class="table table-stripped">
+					<div class="table-responsive">
+						<table class="table table-stripped table-bordered" style="font-family: Comic Sans MS, cursive, sans-serif !important;">
 							<thead>
 								<tr>
-									<th>Profile Image of Candidates</th>
-									<th>Candidate Name</th>
+									<th class="col-md-4">Profile of Candidates</th>
+									<th class="col-sm-4">Candidate Name</th>
+									<th class="col-sm-4">Vote Selection </th>
 								</tr>
 							</thead>
 							<tbody>
+
+
+								<%
+									for (int j = 0; j < candidateList.size(); j++) {
+													String[] candidateInfo2 = candidateList.get(j).split(";");
+								%>
 								<tr>
 									<td>
-										<%
-											for (int j = 0; j < candidateList.size(); j++) {
-															String[] candidateInfo2 = candidateList.get(j).split(";");
-										%>
-
 										<div class="card">
 											<img
-													src="${pageContext.request.contextPath}/images/<%=candidateInfo2[2] %>"
-													style="width: 100%;" />
-											</div>
-										</div> 
-										<%
-											}
-										%>
+												src="${pageContext.request.contextPath}/images/<%=candidateInfo2[2] %>"
+												style="width: 100%;" />
+										</div>
 									</td>
 									<td>
-										<%
-											for (int j = 0; j < candidateList.size(); j++) {
-															String[] candidateInfo2 = candidateList.get(j).split(";");
-										%> <a href="candidate.jsp" target="_blank"><p>
-												<input type="checkbox" class="checkbox" name="<%=candidateInfo2[1]%>"
-													value="<%=candidateInfo2[1]%>">&emsp;
-												<%=candidateInfo2[1]%>
-											</p></a> <%
- 	}
- %>
+										<a href="candidate.jsp" target="_blank"> <h3> <%=candidateInfo2[1]%> </h3></a>
+									</td>
+									<td>
+										<input type="checkbox" class="checkbox"
+												name="<%=candidateInfo2[1]%>" value="<%=candidateInfo2[1]%>"> 										
 									</td>
 								</tr>
+								<%
+									}
+								%>
+
+								
 							</tbody>
 						</table>
-						
+						</div>
+
 						<input type="hidden" name="electionID"
 							value="<%=(int) eBean.getElectionId()%>"> <input
 							type="hidden" name="member_id"
 							value="<%=(int) uBean.getMember_id()%>">
 
-					</div>
+					
 					<div class="button row">
 						<ul class="pager">
 							<li class="previous"><a onclick="showLayer('page2')">
@@ -279,21 +294,26 @@
 	<script>
 		$('input:radio').change(function() {
 			if ($(this).val() == true) {
-				$("#a_next").text('Hello');
+				$("#a_next").text('Sample');
 			} else {
 				$("#a_next").text('Go to Next');
+				$("#a_next2").text('Go to Next');
 			}
 		});
-		
-		var counterCandidates = 0; 
-        $('.checkbox').on('click', function() { 
-            if (this.checked) {
-            	counterCandidates++;                 
-            } else {
-            	counterCandidates--;
-            }
-            $('#Counter').html( 'You have selected ' + counterCandidates + ' candidates so far!');             
-    	})
+
+		var counterCandidates = 0;
+		$('.checkbox').on(
+				'click',
+				function() {
+					if (this.checked) {
+						counterCandidates++;
+					} else {
+						counterCandidates--;
+					}
+					$('#Counter').html(
+							'You have selected ' + counterCandidates
+									+ ' candidate(s)!');
+				})
 	</script>
 </body>
 </html>
