@@ -22,7 +22,7 @@ public class CandidateBean implements Serializable {
 		this.candidateImage = image;
 		this.candidateProfile = profile;
 		this.candidateProfile = position;
-		System.out.println("Consonstructor..........");
+		System.out.println("Constructor........");
 	}
 
 	public String getCandidateAddress() {

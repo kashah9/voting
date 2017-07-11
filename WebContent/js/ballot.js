@@ -1,5 +1,30 @@
-
+var divs = ['page1', 'page2', 'page3'];
+var visiblePageId = null;
 var name1, name2;
+
+function showLayer(page) {
+	if(visiblePageId === page) {
+		visiblePageId = null;
+	}
+	else {
+		visiblePageId = page;
+	}
+	hideNonVisibleDivs();
+}
+function hideNonVisibleDivs() {
+  var i, divId, div;
+  for(i = 0; i < divs.length; i++) {
+    divId = divs[i];
+    div = document.getElementById(divId);
+    console.log("Hello"+div);
+    if(visiblePageId === divId) {
+      div.style.visibility = "visible";
+    } else {
+      div.style.visibility = "hidden";
+    }
+  }
+}
+
 function onInputClick(candidate, position) {
 	var candidateInfo = candidate.split(";");
 	for (var i = 0; i < candidateInfo.length; i++) {
@@ -9,28 +34,34 @@ function onInputClick(candidate, position) {
 		if (position == "Chairman") {
 			name2 = candidateInfo[1];
 		}
-		if(position == "EC") {
+		if (position == "EC") {
 			name3 = candidateInfo[1];
 		}
 	}
 }
 function summary() {
 
-	// for two positions (manually add id for each position)
-	var selectedVal = "";
-	var selectedLabel1 = $("#label1 input[type='radio']:checked");
-	var selectedLabel2 = $("#label2 input[type='radio']:checked");
-	if (selectedLabel1.length > 0 || selectedLabel2.length > 0) {
-		selectedVal1 = selectedLabel1.val();
-		selectedVal2 = selectedLabel2.val();
+	var selectedval = [];
+	$("input[type='checkbox']:checked").each(function(i){
+		selectedval[i] = $(this).val();
+		console.log(selectedval[i]);
+	});
+	
+	if(name1 === undefined){
+		name1 = "None selected";
 	}
-	// console.log();
+	if(name2 === undefined){
+		name2 = "None selected";
+	}
+	
 	document.getElementById('summary').innerHTML = "Your selection Summary <br>"
-			+ selectedVal1
-			+ " President -> "
-			+ name1
-			+ "<br>"
-			+ selectedVal2
-			+ " Chairman -> " + name2;
+		+ "<br> President -> "
+		+ name1
+		+ "<br>"
+		+ " Chairman -> " 
+		+ name2
+		+ "<br>"
+		+ "Committee -> "
+		+ selectedval;
 }
 

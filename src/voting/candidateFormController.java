@@ -81,7 +81,6 @@ public class candidateFormController extends HttpServlet {
 		try {
 
 			String candidateId = request.getParameter("id");
-			System.out.println(candidateId);
 			String candidateName = request.getParameter("name");
 			String candidateAddress = request.getParameter("address");
 			String candidatePosition = request.getParameter("position_name");

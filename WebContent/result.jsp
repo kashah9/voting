@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.*, java.sql.*"%>
+<%@ page import="java.util.*, java.sql.*, voting.ElectionBean, voting.UserBean"%>
 <%
+	
 	Class.forName("com.mysql.jdbc.Driver").newInstance();
 	Connection conn = DriverManager
 			.getConnection("jdbc:mysql://localhost:3306/evoting?autoReconnect=true&useSSL=false", "root", "");
-
+	
 	Statement st = conn.createStatement();
 	String sql = "select t.candidate_id, t.position_name from (select * from election_votes where election_id = 1) as t;";
 	ResultSet rs = st.executeQuery(sql);
@@ -29,6 +30,25 @@
 		}
 
 	}
+	String[] candidateInfo = null;
+	ElectionBean eBean = (ElectionBean) session.getAttribute("currentElection");
+	UserBean uBean = (UserBean) session.getAttribute("currentUser");
+	boolean noElection = eBean.getNoElection();
+	if (!noElection) {
+		
+		HashMap<String, ArrayList<String>> positionCandidateMap = eBean.getPositionCandidateMap();
+		Set set = positionCandidateMap.keySet();
+		Iterator itr = set.iterator();
+		while (itr.hasNext()) {
+			
+			String positionName = (String) itr.next();
+			ArrayList<String> candidateList = positionCandidateMap.get(positionName);
+			for(int i = 0; i<candidateList.size(); i++){
+				candidateInfo = candidateList.get(i).split(";");
+				
+			}
+		}
+	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -42,8 +62,16 @@
 <script src="/voting/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<table>
+<div class="container">
+	<table class="table table-striped table-bordered table-hover">
+	<tr>
+		<th>Candidate ID</th>
+		<th>Number of Votes</th>
+		<th>Candidate Name</th>
+	</tr>
 		<%
+		
+		
 			Set set = vote_map.keySet();
 			Iterator itr = set.iterator();
 			HashMap<String, Integer> winner_map = new HashMap<>();
@@ -58,6 +86,14 @@
 					Map.Entry e = (Map.Entry) it.next();
 					int cId = (int) e.getKey();
 					int vCount = (int) e.getValue();
+					
+					%>
+					<tr>
+						<td><%=cId%></td>
+						<td><%=vCount %></td>
+						<td><%=candidateInfo[1] %>
+					</tr>
+					<%
 					if (vCount > current_max) {
 						current_winner = cId;
 					}
@@ -65,8 +101,10 @@
 				winner_map.put(posName, current_winner);
 			}
 		%>
+		
 
 	</table>
+	</div>
 	<div class="container-fluid">
 		<div class="winner-header container";>
 			<div id="header">

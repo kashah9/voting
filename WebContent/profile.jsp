@@ -14,7 +14,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/voting/js/showPage.js"></script>
-<script src="/voting/js/ballot.js"></script>
+
 <style>
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -43,10 +43,10 @@ img {
 <body style="background-color: #FFAE00">
 	<div class="votePages" id="form-wrapper">
 		<%@include file="mainMenu.jsp"%>
-		
-			<h1 class="header-page">Ballot Paper</h1>
-			<hr>
-			<div class="container">
+
+		<h1 class="header-page">Ballot Paper</h1>
+		<hr>
+		<div class="container">
 			<form action="thankYou.jsp" class="voteForm" method="post">
 
 				<%
@@ -64,7 +64,7 @@ img {
 							ArrayList<String> candidateList = positionCandidateMap.get(positionName);
 							if (positionName.equals("President")) {
 				%>
-				 
+
 				<div id="page1" class="page" style="visibility: visible;">
 					<div class="row">
 						<div class="col-md-4">
@@ -170,8 +170,8 @@ img {
 							<li class="previous"><a onclick="showLayer('page1')">
 									&laquo; Previous</a></li>
 
-							<li class="next"><a id="a_next2" onclick="showLayer('page3')">
-									Skip / No Trust &raquo; </a></li>
+							<li class="next"><a id="a_next2"
+								onclick="showLayer('page3')"> Skip / No Trust &raquo; </a></li>
 						</ul>
 
 					</div>
@@ -191,12 +191,13 @@ img {
 						<p style="font-size: 2vw;">Counter</p>
 					</div>
 					<div class="table-responsive">
-						<table class="table table-stripped table-bordered" style="font-family: Comic Sans MS, cursive, sans-serif !important;">
+						<table class="table table-stripped table-bordered"
+							style="font-family: Comic Sans MS, cursive, sans-serif !important;">
 							<thead>
 								<tr>
 									<th class="col-md-4">Profile of Candidates</th>
 									<th class="col-sm-4">Candidate Name</th>
-									<th class="col-sm-4">Vote Selection </th>
+									<th class="col-sm-4">Vote Selection</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -214,29 +215,30 @@ img {
 												style="width: 100%;" />
 										</div>
 									</td>
-									<td>
-										<a href="candidate.jsp" target="_blank"> <h3> <%=candidateInfo2[1]%> </h3></a>
-									</td>
-									<td>
-										<input type="checkbox" class="checkbox"
-												name="<%=candidateInfo2[1]%>" value="<%=candidateInfo2[1]%>"> 										
+									<td><a href="candidate.jsp" target="_blank">
+											<h3>
+												<%=candidateInfo2[1]%>
+											</h3>
+									</a></td>
+									<td><input type="checkbox" class="checkbox"
+										name="<%=candidateInfo2[1]%>" value="<%=candidateInfo2[1]%>" id="checkbox1">
 									</td>
 								</tr>
 								<%
 									}
 								%>
 
-								
+
 							</tbody>
 						</table>
-						</div>
+					</div>
 
-						<input type="hidden" name="electionID"
-							value="<%=(int) eBean.getElectionId()%>"> <input
-							type="hidden" name="member_id"
-							value="<%=(int) uBean.getMember_id()%>">
+					<input type="hidden" name="electionID"
+						value="<%=(int) eBean.getElectionId()%>"> <input
+						type="hidden" name="member_id"
+						value="<%=(int) uBean.getMember_id()%>">
 
-					
+
 					<div class="button row">
 						<ul class="pager">
 							<li class="previous"><a onclick="showLayer('page2')">
@@ -255,7 +257,7 @@ img {
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h3 class="modal-title" id="exampleModalLabel">Submit Vote</h3>
+								<h3 class="modal-title" id="exampleModalLabel">Selection Summary</h3>
 								<button type="button" class="close" data-dismiss="modal"
 									aria-label="Close">
 									<span aria-hidden="true">&times;</span>
@@ -315,5 +317,6 @@ img {
 									+ ' candidate(s)!');
 				})
 	</script>
+	<script src="/voting/js/ballot.js"></script>
 </body>
 </html>

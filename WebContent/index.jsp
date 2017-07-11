@@ -10,9 +10,6 @@
 <script src="/voting/js/jquery-3.2.1.min.js"></script>
 <script src="/voting/js/bootstrap.min.js"></script>
 <script src="/voting/js/validator.min.js"></script>
-<script>
-	document.getElementById("logout").style.display = "none";
-</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
@@ -72,5 +69,15 @@
 		</div>
 		<%@include file="footer.jsp"%>
 	</div>
+<script>
+
+	$(document).ready(function(){
+		document.getElementById("logout").style.display = "none";
+	});
+  	setTimeout(function() {
+	    $('#logout').hide();
+	}, 10000);
+
+</script>
 </body>
 </html>
