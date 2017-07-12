@@ -7,13 +7,14 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/voting/css/footer.css" />
 <link rel="stylesheet" href="/voting/css/bootstrap.min.css">
+<style>
+
+</style>
 </head>
 <body>
 	<div class="footer">
-		<footer>
-		<p>&copy; Copyright 2017 - All rights reserved by Jain Center of
-			New Jersey</p>
-		</footer>
+		&copy; Copyright 2017 - All rights reserved by Jain Center of
+			New Jersey
 	</div>
 </body>
 

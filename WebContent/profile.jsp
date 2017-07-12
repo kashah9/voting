@@ -13,7 +13,6 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="/voting/js/showPage.js"></script>
 
 <style>
 .card {
@@ -93,7 +92,7 @@ img {
 										style="width: 100%;" />
 									<div id="candLink" class="w3-container w3-center">
 										<a href="candidate.jsp" target="_blank"><p>
-												<input type="checkbox" name="<%=candidateInfo[1]%>"
+												<input  type="radio" name="<%=candidateInfo[1]%>"
 													value="<%=candidateInfo[1]%>">&emsp;
 												<%=candidateInfo[1]%>
 											</p></a>
@@ -147,7 +146,7 @@ img {
 										style="width: 100%;" />
 									<div id="candLink" class="w3-container w3-center">
 										<a href="candidate.jsp" target="_blank"><p>
-												<input type="checkbox" name="<%=candidateInfo1[1]%>"
+												<input type="radio" name="<%=candidateInfo1[1]%>"
 													value="<%=candidateInfo1[1]%>">&emsp;
 												<%=candidateInfo1[1]%>
 											</p></a>
@@ -188,7 +187,7 @@ img {
 						<%=positionName%></h2>
 
 					<div id="Counter">
-						<p style="font-size: 2vw;">Counter</p>
+						<p style="font-size: 1.5vw;">You have selected 0 candidate(s)!</p>
 					</div>
 					<div class="table-responsive">
 						<table class="table table-stripped table-bordered"

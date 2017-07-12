@@ -65,6 +65,11 @@ public class LoginController extends HttpServlet {
 				session = request.getSession(true);	    
 		        session.setAttribute("currentElection",eBean); 
 		        session.setAttribute("currentUser", uBean);
+		        rs = st.executeQuery("Select * from election_admins where admin_id = "+memberId);
+		        if(rs.next()){
+		        	 RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
+			         rd.forward(request, response);
+		        }
 		        
 		        rs = st.executeQuery("Select * from election_votes where voter_id = "+memberId);
 		        if(!rs.next()){
@@ -76,6 +81,7 @@ public class LoginController extends HttpServlet {
 		        	RequestDispatcher rd = request.getRequestDispatcher("testSubmit.jsp?status=again");
 		            rd.forward(request, response);
 		        }
+		        
 			}
 			else
 			{

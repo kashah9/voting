@@ -16,7 +16,7 @@
 <body style="background-color: #FFAE00;">
 	<div class="wrap">
 		<div class="container" id="form-wrapper">
-			<div class="page-header">Jain Center of New Jersey</div>
+			<div class="page-header text-center">Jain Center of New Jersey</div>
 			<form class="form-horizontal" action="/voting/LoginController"
 				data-toggle="validator" method="post">
 				<div class="form-group margin-bottom">
@@ -72,11 +72,12 @@
 <script>
 
 	$(document).ready(function(){
-		document.getElementById("logout").style.display = "none";
+		document.getElementById("logout").style.visibility = "hidden";
 	});
-  	setTimeout(function() {
+	
+  	/* setTimeout(function() {
 	    $('#logout').hide();
-	}, 10000);
+	}, 10000); */
 
 </script>
 </body>

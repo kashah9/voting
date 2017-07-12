@@ -12,30 +12,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<!-- <body>
-	<i class="fa fa-bars fa-2x toggle-nav" data-toggle="collapse"
-				data-target="#menu-content"></i>
-	<nav class="navbar navbar-default navbar-fixed-top">
 	
-	<div class="container-fluid " >
-		
-		<ul class="nav navbar-nav collapse in" id="menu-content">
-			<li class="active"><a href="/voting/candidate.jsp">Candidate
-					List</a></li>
-			<li class="#"><a href="#">About</a></li>
-			<li class="#"><a href="#">Contact US</a></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
-			<li><a href="/voting/Logout.jsp"><span
-					class="glyphicon glyphicon-log-in"></span>Logout</a></li>
-		</ul>
-	</div>
-	</nav>
-	
-</body> -->
-
 </head>
 <body>
 

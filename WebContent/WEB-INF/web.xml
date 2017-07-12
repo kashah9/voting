@@ -16,15 +16,6 @@
     <error-code>500</error-code>
     <location>/ErrorPage.jsp</location>
   </error-page>
- <!--  <servlet>
-    <servlet-name>FileUploadController</servlet-name>
-    <servlet-class>voting/candidateFormController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>FileUploadController</servlet-name>
-    <url-pattern>/upload.jsp</url-pattern>
-  </servlet-mapping> -->
-  
   <servlet>
     <servlet-name>VotingController</servlet-name>
     <servlet-class>voting/VotingController</servlet-class>
