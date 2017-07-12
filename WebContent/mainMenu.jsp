@@ -17,8 +17,8 @@
 <body>
 
 <div class="topnav" id="myTopnav">
-  <a href="#home">Home</a>
-  <a href="/voting/candidate.jsp"><span class="glyphicon glyphicon-user"></span> Candidate Profiles</a>
+  <a href="/voting/options.jsp">Home</a>
+  <a href="/voting/candidateProfiles.jsp"><span class="glyphicon glyphicon-user"></span> Candidate Profiles</a>
   <a href="#contact">Contact</a>
   <a href="http://www.jaincenternj.org/">About</a>
   <a href="/voting/Logout.jsp"><span

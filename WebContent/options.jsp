@@ -16,6 +16,7 @@ div span {
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body style="background-color: #FFAE00">
+	<%@include file="mainMenu.jsp"%>
 	<div class="container" id="main">
 
 		<h2 class="page-header text-center">Please select option from
@@ -23,17 +24,17 @@ div span {
 		<div class="row">
 			<div class="col-md-4 col-sm-offset-2">
 				<span class="label">Click below to check out the candidate
-					profiles </span> <a href="candidate.jsp"><img
+					profiles </span> <a href="candidateProfiles.jsp"><img
 					src="/voting/images/options1.jpg" class="img-thumbnail"
 					alt="View Candidate Profiles" width="354" height="250"></a>
 			</div>
 			<div class="col-md-4">
-				<span class="label">Click below to vote</span> <a href="profile.jsp"><img
+				<span class="label">Click below to vote</span> <a href="ballotPaper.jsp"><img
 					src="/voting/images/options2.jpg" class="img-thumbnail"
 					alt="Go Vote" width="354" height="250"></a>
 			</div>
 		</div>
 	</div>
-
+<%@include file="footer.jsp"%>
 </body>
 </html>

@@ -93,15 +93,16 @@ public class candidateFormController extends HttpServlet {
 			CandidateBean cBean = new CandidateBean(candidateName, tempFile, candidateProfile, candidateAddress,
 					candidatePosition);
 
-			String sql = "select * from election_candidates where election_id = 1 and candidate_id = '"+candidateId+"'";
+			String sql = "select * from election_candidatestemp where election_id = 1 and candidate_id = '"+candidateId+"'";
 			ResultSet rs = st.executeQuery(sql);
 			if(rs.next()){
 				String updateSQL = "update election_candidates SET image_url = '"+tempFile+"', description = '"+candidateProfile+"', Address = '"+candidateAddress+"' where candidate_id = '"+candidateId+"'";
 				st.executeUpdate(updateSQL);
 			}
 			else {
-				String insertSQL = "insert into election_candidates values(1,"+candidateId+",'"+candidatePosition+"','"+tempFile+"','"+candidateProfile+"', '"+candidateAddress+"')";
+				String insertSQL = "insert into election_candidatestemp values(1,"+candidateId+",'"+candidatePosition+"','"+tempFile+"','"+candidateProfile+"', '"+candidateAddress+"')";
 				st.executeUpdate(insertSQL);
+				
 			}
 			RequestDispatcher rd = request.getRequestDispatcher("sucess.jsp");
             rd.forward(request, response);

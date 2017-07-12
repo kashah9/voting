@@ -20,7 +20,7 @@
        <h1 class="header-page">Thank You for voting!</h1><hr>
        <span class="center-div"><img src="/voting/images/thank-vote.png" width="400px" height="400px;"/></span>
        
-       <a type="button" id="btn-cand" class="btn btn-primary btn-lg" href="candidate.jsp">Check out candidate Profile!</a>
+       <a type="button" id="btn-cand" class="btn btn-primary btn-lg" href="candidateProfiles.jsp">Check out candidate Profile!</a>
     <%
 		}
 		else if(status.equals("again")){
@@ -28,7 +28,7 @@
     	<h1 class="header-page">You have voted already!</h1><hr>
     	<span class="center-div"><h3>Our records say that you have already voted!</h3></span>
     	<img src="/voting/images/thank-you.jpg" width="400px" height="400px"/>
-    	<a class="btn btn-primary btn-lg" href="candidate.jsp">Check out candidate Profile!</a>
+    	<a class="btn btn-primary btn-lg" href="candidateProfiles.jsp">Check out candidate Profile!</a>
    	<%
 		}
    	%>
