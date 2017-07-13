@@ -157,7 +157,8 @@ img {
 						</div>
 
 						<input type="hidden" name="electionID"
-							value="<%=(int) eBean.getElectionId()%>"> <input
+							value="<%=(int) eBean.getElectionId()%>">
+						<input
 							type="hidden" name="member_id"
 							value="<%=(int) uBean.getMember_id()%>">
 						<%

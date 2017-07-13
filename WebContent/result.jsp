@@ -31,6 +31,7 @@
 
 	}
 	String[] candidateInfo = null;
+	HashMap<Integer, String> candIdName = new HashMap<>();
 	ElectionBean eBean = (ElectionBean) session.getAttribute("currentElection");
 	UserBean uBean = (UserBean) session.getAttribute("currentUser");
 	boolean noElection = eBean.getNoElection();
@@ -44,7 +45,8 @@
 			String positionName = (String) itr.next();
 			ArrayList<String> candidateList = positionCandidateMap.get(positionName);
 			for(int i = 0; i<candidateList.size(); i++){
-				candidateInfo = candidateList.get(i).split(";");
+				//candidateInfo = candidateList.get(i).split(";")[1];
+				candIdName.put(Integer.parseInt(candidateList.get(i).split(";")[0]), candidateList.get(i).split(";")[1]);
 				
 			}
 		}
@@ -91,7 +93,7 @@
 					<tr>
 						<td><%=cId%></td>
 						<td><%=vCount %></td>
-						<td><%=candidateInfo[1] %>
+						<td><%=candIdName.get(cId)%>
 					</tr>
 					<%
 					if (vCount > current_max) {
