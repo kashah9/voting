@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"
 	import="java.util.*, java.sql.*, voting.UserBean, voting.ElectionBean"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,6 +22,10 @@ span.label {
 </style>
 </head>
 <%
+	UserBean uBean = (UserBean) session.getAttribute("currentUser");
+	if(uBean.isFlag() == true){
+		
+	
 	Class.forName("com.mysql.jdbc.Driver").newInstance();
 	Connection conn = DriverManager
 			.getConnection("jdbc:mysql://localhost:3306/evoting?autoReconnect=true&useSSL=false", "root", "");
@@ -51,7 +56,7 @@ span.label {
 	String[] candidateInfo = null;
 	HashMap<Integer, String> candIdName = new HashMap<>();
 	ElectionBean eBean = (ElectionBean) session.getAttribute("currentElection");
-	UserBean uBean = (UserBean) session.getAttribute("currentUser");
+	
 	boolean noElection = eBean.getNoElection();
 	if (!noElection) {
 
@@ -71,7 +76,7 @@ span.label {
 		}
 	}
 %>
-<body>
+	<body>
 	<div class="container-fluid">
 		<h2 class="text-center">Welcome to the Admin Panel</h2>
 		<div class="row">
@@ -98,8 +103,9 @@ span.label {
 						src="/voting/images/options2.jpg" class="img-thumbnail"
 						alt="Go Vote" width="304" height="200"></a>
 				</div>
+				</form>
 		</div>
-		</form>
+		
 		<div class="row">
 			<button type="button"
 				class="col-md-4 col-md-offset-1 btn btn-primary btn-lg"
@@ -123,7 +129,7 @@ span.label {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+						
 						<%
 							try {
 								Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -138,24 +144,18 @@ span.label {
 								while (rs.next()) {
 						%>
 
-						<form action="/voting/adminController" method="get">
-							<input type="hidden" name="candidate_id"
-								value="<%=rs.getInt("candidate_id")%>" />
-							<td><%=rs.getInt("candidate_id")%></td> <input type="hidden"
-								name="candidate_name"
-								value="<%=rs.getString("FirstName") + " " + rs.getString("LastName")%>" />
+					<form action="/voting/adminController" method="post">
+						<tr>
+							<td><%=rs.getInt("candidate_id")%></td> 
+							
 							<td><%=rs.getString("FirstName") + " " + rs.getString("LastName")%></td>
 
-							<input type="hidden" name="position_name"
-								value="<%=rs.getString("position_name")%>" />
-							<td><%=rs.getString("position_name")%></td> <input type="hidden"
-								name="image" value="<%=rs.getString("image_url")%>" />
+							
+							<td><%=rs.getString("position_name")%></td> 
 							<td><img
 								src="${pageContext.request.contextPath}/images/<%=rs.getString("image_url")%>"
-								height="100" width="120" /></td> <input type="hidden"
-								name="description" value="<%=rs.getString("description")%>" />
-							<td><%=rs.getString("description")%></td> <input type="hidden"
-								name="address" value="<%=rs.getString("address")%>" />
+								height="100" width="120" /></td> 
+							<td><%=rs.getString("description")%></td> 
 							<td><%=rs.getString("address")%></td>
 							<td>
 								<button type="submit" class="btn btn-info btn-sm" name="Approve"
@@ -163,8 +163,22 @@ span.label {
 								<button type="submit" class="btn btn-info btn-sm" name="Reject"
 									value="no">Reject</button>
 							</td>
-					</tr>
+						</tr>
+							<input type="hidden" name="candidate_id"
+								value="<%=rs.getInt("candidate_id")%>">
+							<input type="hidden"
+								name="candidate_name"
+								value="<%=rs.getString("FirstName") + " " + rs.getString("LastName")%>" />
+							<input type="hidden" name="position_name"
+								value="<%=rs.getString("position_name")%>" />
+							<input type="hidden"
+								name="image" value="<%=rs.getString("image_url")%>" />
+							<input type="hidden"
+								name="description" value="<%=rs.getString("description")%>" />
+								<input type="hidden"
+								name="address" value="<%=rs.getString("address")%>" />
 					</form>
+
 					<%
 							}
 					
@@ -180,9 +194,9 @@ span.label {
 		<div class="table-responsive collapse" id="resultTable">
 			<table class="table table-striped table-bordered table-hover">
 				<tr>
-					<th>Candidate ID</th>
-					<th>Number of Votes</th>
 					<th>Candidate Name</th>
+					<th>Number of Votes</th>
+					<th>Position Name</th>
 				</tr>
 				<%
 					Set set = vote_map.keySet();
@@ -201,9 +215,10 @@ span.label {
 							int vCount = (int) e.getValue();
 				%>
 				<tr>
-					<td><%=cId%></td>
-					<td><%=vCount%></td>
 					<td><%=candIdName.get(cId)%>
+					<td><%=vCount%></td>
+					<td><%=posName %></td>
+					
 				</tr>
 				<%
 					if (vCount > current_max) {
@@ -220,6 +235,14 @@ span.label {
 	</div>
 
 </body>
+	<% 
+		} 
+	else {
+	%>
+		<jsp:forward page = "ErrorPage.jsp"/>
+	<%
+		}
+	%>
 <script>
 	// Work on disabling the button...
 

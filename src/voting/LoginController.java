@@ -56,17 +56,21 @@ public class LoginController extends HttpServlet {
 				UserBean uBean = new UserBean();
 				uBean.setMember_id(rs.getInt("MEMBER_ID"));
 				int memberId = uBean.getMember_id();
-				System.out.println("Debug Temp:"+memberId);
 				
 				eBean = preq.processing();
 				HashMap<String, ArrayList<String>> candHashmap = eBean.getPositionCandidateMap();
 				
 				HttpSession session = request.getSession(true);
-				session = request.getSession(true);	    
+					    
 		        session.setAttribute("currentElection",eBean); 
 		        session.setAttribute("currentUser", uBean);
-		        rs = st.executeQuery("Select * from election_admins where admin_id = "+memberId);
-		        if(rs.next()){
+		        
+		        
+		        UserBean ub = (UserBean) session.getAttribute("currentUser");
+				int loginId = ub.getMember_id();
+				rs = st.executeQuery("Select * from election_admins where admin_id = "+loginId);
+				if(rs.next()){
+					 ub.setFlag(true);
 		        	 RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
 			         rd.forward(request, response);
 		        }

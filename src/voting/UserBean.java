@@ -8,6 +8,7 @@ public class UserBean implements Serializable{
 	private int member_id;
 	private String username;
 	private HashMap<String, String> vote = new HashMap<String,String>();
+	private boolean flag;
 	
 	public UserBean(){}
 	
@@ -36,5 +37,13 @@ public class UserBean implements Serializable{
 	
 	public void setVote(HashMap<String, String> vote) {
 		this.vote = vote;
+	}
+
+	public boolean isFlag() {
+		return flag;
+	}
+
+	public void setFlag(boolean flag) {
+		this.flag = flag;
 	}	
 }
