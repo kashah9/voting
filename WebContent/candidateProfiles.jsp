@@ -4,7 +4,6 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Candidate Profiles</title>
 
 <link rel="stylesheet"
@@ -30,8 +29,8 @@
 
 </head>
 <body>
-	<div class="container-fluid row">
-		<div class="nav-side-menu">
+<div class="container-fluid row">
+	<div class="nav-side-menu">
 			<div class="brand">JCNJ Election</div>
 			<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse"
 				data-target="#menu-content"></i>

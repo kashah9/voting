@@ -14,7 +14,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body style="background-color: #FFAE00;">
-	<div class="wrap">
 		<div class="container" id="form-wrapper">
 			<div class="page-header text-center">Jain Center of New Jersey</div>
 			<form class="form-horizontal" action="/voting/LoginController"
@@ -65,15 +64,19 @@
 					</div>
 				</div>
 			</form>
-			
+			<%@include file="footer.jsp"%>
 		</div>
-		<%@include file="footer.jsp"%>
-	</div>
+	<%
+		String temp = request.getParameter("logout");
+		
+	%>
+	
 <script>
-
+	
 	$(document).ready(function(){
-		document.getElementById("logout").style.visibility = "hidden";
+		document.getElementById("logout").style.visibility = "visible";
 	});
+	
 	
   	/* setTimeout(function() {
 	    $('#logout').hide();

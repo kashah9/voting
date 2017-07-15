@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Candidate Form Page</title>
 
 <link rel="stylesheet" href="/voting/css/login.css">
@@ -17,7 +18,6 @@
 	src="/voting/js/validator.min.js"></script>
 </head>
 <body style="background-color: #FFAE00;">
-	<div>
 		<div class="container" id="form-wrapper">
 			<h2 class="page-header">JCNJ: Candidate Profile</h2>
 			<%
@@ -97,8 +97,8 @@
 					</div>
 				</div>
 			</form>
+			<%@include file="footer.jsp"%>
 		</div>
-
-	</div>
+		
 </body>
 </html>
