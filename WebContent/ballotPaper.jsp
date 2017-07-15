@@ -7,7 +7,7 @@
 <head>
 <title>Election Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/voting/css/ballot.css">
 <link rel="stylesheet" href="/voting/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -15,6 +15,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
+
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
@@ -40,9 +41,8 @@ img {
 %>
 
 <body style="background-color: #FFAE00">
-	<div class="votePages" id="form-wrapper">
+	<div class="container" id="form-wrapper">
 		<%@include file="mainMenu.jsp"%>
-
 		<h1 class="header-page">Ballot Paper</h1>
 		<hr>
 		<div class="container">
@@ -188,7 +188,7 @@ img {
 						<%=positionName%></h2>
 
 					<div id="Counter">
-						<p style="font-size: 1.5vw;">You have selected 0 candidate(s)!</p>
+						<p>You have selected 0 candidate(s)!</p>
 					</div>
 					<div class="table-responsive">
 						<table class="table table-stripped table-bordered"
@@ -221,25 +221,25 @@ img {
 											</h3>
 									</a></td>
 									<td><input type="checkbox" class="checkbox"
-										name="<%=candidateInfo2[1]%>" value="<%=candidateInfo2[1]%>" id="checkbox1">
+										name="<%=positionName%>" value="<%=candidateInfo2[0]%>" id="checkbox1">
+									<input type="hidden" id="checkBox"
+										value="<%=candidateInfo2[1]%>"> 
 									</td>
 								</tr>
+						
 								<%
 									}
 								%>
-
-
 							</tbody>
 						</table>
 					</div>
-
+					
 					<input type="hidden" name="electionID"
-						value="<%=(int) eBean.getElectionId()%>"> <input
-						type="hidden" name="member_id"
-						value="<%=(int) uBean.getMember_id()%>">
-
-
-					<div class="button row">
+							value="<%=(int) eBean.getElectionId()%>"> 
+					<input type="hidden" name="member_id"
+							value="<%=(int) uBean.getMember_id()%>">
+					
+				<div class="button row">
 						<ul class="pager">
 							<li class="previous"><a onclick="showLayer('page2')">
 									&laquo; Previous</a></li>
@@ -250,8 +250,10 @@ img {
 					</div>
 				</div>
 
-
-				<!-- Button trigger modal -->
+				<%
+					}
+				%>
+						<!-- Button trigger modal -->
 				<div class="modal fade" id="myModal" tabindex="-1"
 					aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
@@ -275,10 +277,8 @@ img {
 						</div>
 					</div>
 				</div>
-
-
-				<%
-					}
+						
+						<% 
 						}
 				%>
 			</form>

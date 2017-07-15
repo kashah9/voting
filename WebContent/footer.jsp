@@ -4,18 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/voting/css/footer.css" />
-<link rel="stylesheet" href="/voting/css/bootstrap.min.css">
-<style>
 
-</style>
+<link rel="stylesheet" href="/voting/css/bootstrap.min.css">
+<link rel="stylesheet" href="/voting/css/footer.css">
 </head>
 <body>
 	<div class="footer">
-		&copy; Copyright 2017 - All rights reserved by Jain Center of
-			New Jersey
+		<p>&copy; Copyright 2017 - All rights reserved by JCNJ</p>
 	</div>
 </body>
-
 </html>

@@ -1,25 +1,27 @@
 .page-header {
-    font-size: 3vw;
+    font-size: 1.5em;
     align-content: center;
     text-align: -webkit-center;
 }
-div#form-wrapper{
+#form-wrapper{
+	
     height: 100%;        /* Set this to your convenience */
-    position: fixed;
     margin: 0 auto;
     top:0;
     bottom:0;
     background-color: #eee;
-    left: 80px;
-    right: 80px;
+    width: 90%;
+    left: 5%;
+    right: 5%;
+    overflow: hidden;
 }
 body {
     background-color: #FFAE00;
     font-family: "Comic Sans MS", cursive, sans-serif !important;
 }
-.row {
-	margin-top: 5px;
-}
 .margin-bottom {
 	margin-bottom: 20px;
+}
+.list-unstyled li{
+	padding-left: 15px;
 }

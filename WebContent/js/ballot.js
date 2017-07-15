@@ -43,7 +43,7 @@ function summary() {
 
 	var selectedval = [];
 	$("input[type='checkbox']:checked").each(function(i){
-		selectedval[i] = $(this).val();
+		selectedval[i] = $("#checkBox").val();
 		console.log(selectedval[i]);
 	});
 	
